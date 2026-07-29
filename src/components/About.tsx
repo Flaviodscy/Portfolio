@@ -5,7 +5,7 @@ export default function About() {
     <section id="about" className="py-32 px-6">
       <div className="max-w-5xl mx-auto">
         <div className="reveal grid md:grid-cols-2 gap-16 items-center">
-          {/* Photo */}
+          {/* Photo placeholder */}
           <div className="flex justify-center">
             <div className="relative w-72 h-72 sm:w-80 sm:h-80 rounded-2xl overflow-hidden card-hover">
               <div
@@ -24,8 +24,7 @@ export default function About() {
           <div className="space-y-6">
             <h2 className="text-sm font-semibold text-purple-400 uppercase tracking-widest">About Me</h2>
             <h3 className="text-3xl sm:text-4xl font-bold">
-              Where creativity meets{" "}
-              <span className="gradient-text">code</span>
+              My work sits between <span className="gradient-text">visual communication</span> and technical implementation.
             </h3>
             {personalInfo.bio.split("\n\n").map((paragraph, i) => (
               <p key={i} className="text-gray-400 leading-relaxed text-lg">

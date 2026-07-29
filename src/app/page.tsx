@@ -44,7 +44,7 @@ export default function Home() {
       </main>
       {/* Footer */}
       <footer className="py-8 text-center text-gray-600 text-sm border-t border-white/5">
-        &copy; {new Date().getFullYear()} Flavio Cury Gorodscy. All rights reserved.
+        Flávio Gorodscy — Motion Designer & Creative Technologist — Toronto, Canada
       </footer>
     </>
   );

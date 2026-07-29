@@ -35,19 +35,19 @@ export default function Hero() {
         {/* Status badge */}
         <div className="animate-fade-in-up mb-8 inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-2 text-sm text-gray-400">
           <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-          Available for work
+          Toronto, Canada
         </div>
 
-        {/* Name */}
-        <h1 className="animate-fade-in-up text-5xl sm:text-7xl lg:text-8xl font-bold tracking-tight mb-6">
-          {personalInfo.name.split(" ")[0]}
+        {/* Headline */}
+        <h1 className="animate-fade-in-up text-5xl sm:text-7xl lg:text-8xl font-bold tracking-tight mb-6 leading-[1.05]">
+          Motion,
           <br />
-          <span className="gradient-text">
-            {personalInfo.name.split(" ").slice(1).join(" ")}
-          </span>
+          systems
+          <br />
+          <span className="gradient-text">and visual communication.</span>
         </h1>
 
-        {/* Titles with typing effect */}
+        {/* Titles */}
         <div className="animate-fade-in-up h-8 mb-8 flex items-center justify-center gap-3">
           {personalInfo.titles.map((title, i) => (
             <span
@@ -63,12 +63,12 @@ export default function Hero() {
           ))}
         </div>
 
-        {/* Tagline */}
+        {/* Intro */}
         <p
-          className="animate-fade-in-up text-lg sm:text-xl text-gray-500 max-w-2xl mx-auto mb-12"
+          className="animate-fade-in-up text-lg sm:text-xl text-gray-500 max-w-2xl mx-auto mb-12 leading-relaxed"
           style={{ animationDelay: "0.8s" }}
         >
-          {personalInfo.tagline}
+          I design animated content, interfaces and digital-signage experiences—and understand the technology required to make them work reliably in the real world.
         </p>
 
         {/* CTA Buttons */}
@@ -80,13 +80,13 @@ export default function Hero() {
             onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
             className="px-8 py-3.5 bg-gradient-to-r from-purple-500 to-cyan-500 text-white font-medium rounded-full hover:opacity-90 transition-opacity cursor-pointer animate-pulse-glow"
           >
-            View My Work
+            View Selected Work
           </button>
           <button
             onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
             className="px-8 py-3.5 border border-white/20 text-white font-medium rounded-full hover:bg-white/5 transition-colors cursor-pointer"
           >
-            Get in Touch
+            Contact
           </button>
         </div>
 

@@ -10,15 +10,9 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://flaviodscy.github.io/Portfolio"),
-  title: "Flavio Cury Gorodscy — Motion Designer & Software Developer",
-  description: "Portfolio of Flavio Cury Gorodscy — blending motion design with software engineering to create immersive visual experiences.",
-  openGraph: {
-    type: "website",
-    locale: "en_US",
-    title: "Flavio Cury Gorodscy — Portfolio",
-    description: "Motion Designer & Software Developer",
-    // images: [{ url: "/og-image.png" }],
-  },
+  title: "Flávio Gorodscy — Motion Designer & Creative Technologist",
+  description:
+    "Motion, systems and visual communication. Toronto-based Motion Designer and Creative Technologist working across motion graphics, digital signage, interface design and web development.",
 };
 
 export default function RootLayout({
