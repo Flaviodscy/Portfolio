@@ -192,16 +192,51 @@ export const projects = [
       summary:
         "A selection of identity systems, apparel graphics, editorial layouts, social campaigns and experimental visual concepts developed through freelance, academic and independent work.",
       works: [
-        "Eco-conscious skate and surf clothing brand",
-        "Logo and identity design",
-        "Apparel illustrations and graphic stamps",
-        "T-shirt and handbag concepts",
-        "Packaging and product applications",
-        "Social-media campaigns",
-        "Editorial layouts",
-        "Website prototypes",
-        "Event branding",
-        "Illustration & Photography",
+        // Eco-conscious clothing startup
+        {
+          name: "Eco-Conscious Skate & Surf Clothing Brand",
+          description: "Logo, apparel graphics, social content and first website prototype for an online store that sold twice the projected T-shirts in its first week.",
+        },
+        // SanGo
+        {
+          name: "SanGo — Brand Identity",
+          description: "Full brand identity including logo, business card, packaging mockups, promotional video and application across multiple touchpoints.",
+        },
+        // LowKey
+        {
+          name: "LowKey — Visual Identity",
+          description: "Logo design, illustration work for skateboard graphics, apparel stamps, brand manual and caps mockup.",
+        },
+        // Bonne Pooch
+        {
+          name: "Bonne Pooch — Pet Brand Identity",
+          description: "Brand identity for a pet products brand including logo (light/dark versions), packaging, digital card and vertical signboard mockup.",
+        },
+        // Fernanda Vasques
+        {
+          name: "Fernanda Vasques — HandCraft",
+          description: "Brand presentation, business cards and identity system for a handmade crafts brand including bag mockups and product imagery.",
+        },
+        // Laura Leone
+        {
+          name: "Laura Leone — Photography",
+          description: "Visual identity for a photographer including logo variants, white background and green versions of the brand mark.",
+        },
+        // Leticia Barreto
+        {
+          name: "Leticia Barreto — Veterinary Identity System",
+          description: "Complete visual identity system for a veterinary practice: logo (multiple formats), business cards, letterhead, ID badge/pet carrier card and presentation materials.",
+        },
+        // MehConnect
+        {
+          name: "MehConnect — Tech Branding",
+          description: "Brand assets for a tech startup including jar label design, bag identity mark and brand presentation deck.",
+        },
+        // Open Studios
+        {
+          name: "Open Studios — Studio Identity",
+          description: "Studio branding including logo grid system, product mockups, card layout and animated intro GIF for social media.",
+        },
       ],
     },
   },

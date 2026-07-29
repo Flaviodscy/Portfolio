@@ -143,11 +143,18 @@ export default function CaseStudyPage() {
         {cs.works && (
           <div className="grid sm:grid-cols-[200px_1fr] gap-4">
             <h3 className="text-sm font-semibold text-green-400 uppercase tracking-widest text-left">Included Work</h3>
-            <ul className="space-y-2">
-              {cs.works.map((item, i) => (
-                <li key={i} className="flex items-start gap-3 text-gray-400">
-                  <span className="mt-1.5 w-1.5 h-1.5 bg-green-400 rounded-full shrink-0" />
-                  {item}
+            <ul className="space-y-6">
+              {cs.works.map((item: { name: string; description: string } | string, i: number) => (
+                <li key={i} className="text-gray-400">
+                  <span className="flex items-start gap-3">
+                    <span className="mt-1.5 w-1.5 h-1.5 bg-green-400 rounded-full shrink-0" />
+                    <div>
+                      <span className="font-medium text-gray-300">{typeof item === "string" ? item : (item as { name: string }).name}</span>
+                      {typeof item === "object" && item !== null && "description" in item && (
+                        <p className="mt-1 leading-relaxed">{(item as { description: string }).description}</p>
+                      )}
+                    </div>
+                  </span>
                 </li>
               ))}
             </ul>
