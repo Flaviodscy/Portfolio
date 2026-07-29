@@ -13,7 +13,7 @@ export default function Hero() {
         <div
           className="absolute w-[600px] h-[600px] rounded-full opacity-20 animate-float"
           style={{
-            background: "radial-gradient(circle, #8b5cf6, transparent 70%)",
+            background: "radial-gradient(circle, #4ade80, transparent 70%)",
             top: "10%",
             left: "15%",
             animationDuration: "8s",
@@ -22,7 +22,7 @@ export default function Hero() {
         <div
           className="absolute w-[500px] h-[500px] rounded-full opacity-15 animate-float"
           style={{
-            background: "radial-gradient(circle, #06b6d4, transparent 70%)",
+            background: "radial-gradient(circle, #22c55e, transparent 70%)",
             bottom: "15%",
             right: "10%",
             animationDuration: "10s",
@@ -57,7 +57,7 @@ export default function Hero() {
             >
               {title}
               {i < personalInfo.titles.length - 1 && (
-                <span className="text-purple-400 mx-2">&</span>
+                <span className="text-green-400 mx-2">&</span>
               )}
             </span>
           ))}
@@ -73,18 +73,18 @@ export default function Hero() {
 
         {/* CTA Buttons */}
         <div
-          className="animate-fade-in-up flex items-center justify-center gap-4"
+          className="animate-fade-in-up flex flex-col sm:flex-row items-center justify-center gap-4"
           style={{ animationDelay: "1s" }}
         >
           <button
             onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
-            className="px-8 py-3.5 bg-gradient-to-r from-purple-500 to-cyan-500 text-white font-medium rounded-full hover:opacity-90 transition-opacity cursor-pointer animate-pulse-glow"
+            className="px-8 py-3.5 bg-gradient-to-r from-green-500 to-emerald-500 text-white font-medium rounded-full hover:opacity-90 transition-opacity cursor-pointer animate-pulse-glow w-full sm:w-auto"
           >
             View Selected Work
           </button>
           <button
             onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
-            className="px-8 py-3.5 border border-white/20 text-white font-medium rounded-full hover:bg-white/5 transition-colors cursor-pointer"
+            className="px-8 py-3.5 border border-white/20 text-white font-medium rounded-full hover:bg-white/5 transition-colors cursor-pointer w-full sm:w-auto"
           >
             Contact
           </button>

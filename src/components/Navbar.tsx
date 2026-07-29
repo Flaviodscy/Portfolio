@@ -40,7 +40,7 @@ export default function Navbar() {
           onClick={() => scrollTo("hero")}
           className="text-xl font-bold gradient-text cursor-pointer"
         >
-          FC.G
+          Flavio Gorodscy
         </button>
 
         {/* Desktop links */}

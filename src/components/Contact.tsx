@@ -18,7 +18,7 @@ export default function Contact() {
       <div className="max-w-5xl mx-auto space-y-24">
         {/* Philosophy */}
         <div className="reveal">
-          <h2 className="text-center text-sm font-semibold text-purple-400 uppercase tracking-widest mb-12">Design Philosophy</h2>
+          <h2 className="text-center text-sm font-semibold text-green-400 uppercase tracking-widest mb-12">Design Philosophy</h2>
           <div className="grid sm:grid-cols-3 gap-8">
             {philosophy.map((p, i) => (
               <div key={i} className="text-center p-6 bg-white/[0.02] border border-white/[0.04] rounded-xl">
@@ -31,7 +31,7 @@ export default function Contact() {
 
         {/* Contact */}
         <div className="reveal text-center">
-          <h2 className="text-sm font-semibold text-purple-400 uppercase tracking-widest mb-4">Get in Touch</h2>
+          <h2 className="text-sm font-semibold text-green-400 uppercase tracking-widest mb-4">Get in Touch</h2>
           <h3 className="text-3xl sm:text-5xl font-bold mb-6">
             Let's create something that deserves the <span className="gradient-text">screen.</span>
           </h3>
@@ -41,7 +41,7 @@ export default function Contact() {
 
           <a
             href={`mailto:${personalInfo.email}`}
-            className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-purple-500 to-cyan-500 text-white font-medium rounded-full hover:opacity-90 transition-opacity cursor-pointer mb-12"
+            className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-green-500 to-emerald-500 text-white font-medium rounded-full hover:opacity-90 transition-opacity cursor-pointer mb-12"
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
               <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
@@ -70,7 +70,7 @@ export default function Contact() {
                 href={link.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-500 hover:text-white transition-colors p-2 cursor-pointer"
+                className="text-gray-500 hover:text-green-400 transition-colors p-2 cursor-pointer"
                 aria-label={link.label}
               >
                 {SocialIcon[link.icon]}

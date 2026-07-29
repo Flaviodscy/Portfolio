@@ -9,7 +9,7 @@ function SkillBar({ name, level }: { name: string; level: number }) {
       </div>
       <div className="h-2 bg-white/5 rounded-full overflow-hidden">
         <div
-          className="h-full bg-gradient-to-r from-purple-500 to-cyan-500 rounded-full transition-all duration-1000"
+          className="h-full bg-gradient-to-r from-green-400 to-emerald-500 rounded-full transition-all duration-1000"
           style={{ width: `${level}%` }}
         />
       </div>
@@ -19,7 +19,7 @@ function SkillBar({ name, level }: { name: string; level: number }) {
 
 function ToolChip({ name }: { name: string }) {
   return (
-    <span className="inline-flex items-center px-3.5 py-1.5 bg-white/5 border border-white/[0.06] rounded-full text-sm text-gray-400 hover:text-white hover:border-purple-500/30 transition-all cursor-default">
+    <span className="inline-flex items-center px-3.5 py-1.5 bg-white/5 border border-white/[0.06] rounded-full text-sm text-gray-400 hover:text-white hover:border-green-500/30 transition-all cursor-default">
       {name}
     </span>
   );
@@ -32,7 +32,7 @@ export default function Skills() {
         {/* Skill bars */}
         <div>
           <div className="reveal text-center mb-16">
-            <h2 className="text-sm font-semibold text-purple-400 uppercase tracking-widest mb-4">Core Capabilities</h2>
+            <h2 className="text-sm font-semibold text-green-400 uppercase tracking-widest mb-4">Core Capabilities</h2>
             <h3 className="text-3xl sm:text-4xl font-bold">
               What I <span className="gradient-text">do</span>
             </h3>
@@ -42,8 +42,8 @@ export default function Skills() {
             {/* Motion & Visual Design */}
             <div className="space-y-5">
               <div className="flex items-center gap-3 mb-8">
-                <div className="w-10 h-10 rounded-xl bg-purple-500/10 flex items-center justify-center">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" strokeWidth={2}>
+                <div className="w-10 h-10 rounded-xl bg-green-500/10 flex items-center justify-center">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4ade80" strokeWidth={2}>
                     <polygon points="5 3 19 12 5 21 5 3" />
                   </svg>
                 </div>
@@ -57,8 +57,8 @@ export default function Skills() {
             {/* Development & Tech Ops */}
             <div className="space-y-5">
               <div className="flex items-center gap-3 mb-8">
-                <div className="w-10 h-10 rounded-xl bg-cyan-500/10 flex items-center justify-center">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" strokeWidth={2}>
+                <div className="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#34d399" strokeWidth={2}>
                     <polyline points="16 18 22 12 16 6" />
                     <polyline points="8 6 2 12 8 18" />
                   </svg>
@@ -74,7 +74,7 @@ export default function Skills() {
 
         {/* Tools */}
         <div className="reveal">
-          <h3 className="text-2xl font-bold mb-8 text-center">Software & Tools</h3>
+          <h3 className="text-2xl font-bold mb-8 text-center gradient-text">Software & Tools</h3>
           <div className="flex flex-wrap justify-center gap-3">
             {tools.map((tool) => (
               <ToolChip key={tool} name={tool} />
