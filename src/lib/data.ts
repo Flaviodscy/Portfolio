@@ -41,154 +41,189 @@ export const devSkills = [
 export const projects = [
   {
     id: 1,
+    slug: "autovisiontv",
     title: "AutoVisionTV — Digital Signage Management Platform",
-    description:
-      "A custom web-based digital-signage platform to organize displays, content, live channels and remote operations across commercial-screen networks. Connecting creative content management with the technical systems that deliver it to physical displays.",
     category: "dev",
-    image: "/images/project-autovision.jpg",
+    description:
+      "A custom web-based digital-signage platform to organize displays, content, live channels and remote operations across commercial-screen networks.",
     tags: ["Firebase", "JavaScript", "IPTV", "HLS", "UI/UX"],
     github: "#",
     demo: "https://autovisiontv.live",
+    caseStudy: {
+      title: "AutoVisionTV — Digital Signage Management Platform",
+      category: "Digital Signage · Product Design · Full-Stack Development · Technical Operations",
+      summary:
+        "AutoVisionTV is a custom web-based digital-signage platform created to organize displays, content, live channels and remote operations across commercial-screen networks. The platform connects creative content management with the technical systems responsible for delivering that content to physical displays.",
+      role: "Product design, UI/UX, creative development, full-stack web development, testing, deployment and technical support.",
+      work: [
+        "Dashboard and navigation structure",
+        "Responsive desktop and mobile interfaces",
+        "Dealership and location management",
+        "Display and media-player management",
+        "Content scheduling and preview tools",
+        "User-management workflows",
+        "Live-channel and IPTV interfaces",
+        "Remote-display controls",
+        "Stream-health monitoring",
+        "Analytics and system-status information",
+        "Backup and recovery tools",
+        "Firebase and GitHub integration",
+        "Testing across commercial displays and media players",
+        "Troubleshooting playback and connection failures",
+        "Technical documentation and support",
+      ],
+      tech: "HTML, CSS, JavaScript, Firebase, GitHub, web APIs, IPTV, HLS streaming and digital-signage platforms.",
+      quote1:
+        'Managing digital signage across multiple locations requires more than a visually attractive dashboard. The platform must make content, device status and remote controls easy to understand while remaining reliable enough for daily operations.',
+      quote2:
+        "I contribute across both design and implementation. I shape the interface hierarchy, develop features, connect data, test deployment workflows and investigate technical issues involving players, streams, networks and displays.",
+      outcome:
+        "AutoVisionTV brings creative production and operational control into one connected system. It represents the full range of my work across design, animation, development and digital-signage technology.",
+    },
   },
   {
     id: 2,
+    slug: "motion-for-screens",
     title: "Motion Graphics for Commercial Screens",
+    category: "motion",
     description:
       "Animated campaigns designed for automotive showrooms, waiting areas, reception displays and other commercial-screen environments. Concept development through to multi-format deployment.",
-    category: "motion",
-    image: "/images/project-motion.jpg",
     tags: ["After Effects", "Cinema 4D", "Digital Signage"],
     demo: "#",
+    caseStudy: {
+      title: "Motion Graphics for Commercial Screens",
+      category: "Motion Design · Art Direction · Digital Signage",
+      summary:
+        "Animated campaigns designed for automotive showrooms, waiting areas, reception displays and other commercial-screen environments. The work includes concept development, storyboards, style frames, animation, video editing and adaptation for multiple display formats.",
+      role: "Motion designer, visual designer and production specialist.",
+      process: [
+        "Understanding the campaign message",
+        "Developing the visual concept",
+        "Creating storyboards",
+        "Designing style frames",
+        "Animating the campaign",
+        "Adapting to different resolutions",
+        "Testing readability and playback",
+        "Preparing final deployment files",
+      ],
+      quote:
+        "Commercial-screen content must communicate quickly and remain readable from a distance. I use clear hierarchy, controlled motion and concise messaging to create animation that works within real viewing environments.",
+      formats: [
+        "1920 × 1080 landscape",
+        "Portrait screens",
+        "Ultrawide and custom displays",
+        "Social-media adaptations",
+        "Dealership and showroom screens",
+        "Informational and promotional content",
+      ],
+    },
   },
   {
     id: 3,
+    slug: "digital-signage-systems",
     title: "Connecting Content, Players and Displays",
+    category: "dev",
     description:
       "Technical work supporting the complete path between creative content and the physical screen — media players, networks, live streams, IPTV, commercial displays and remote deployment across multiple locations.",
-    category: "dev",
-    image: "/images/project-signage.jpg",
     tags: ["BrightSign", "Samsung Displays", "Signagelive", "HLS"],
-    demo: "#",
+    caseStudy: {
+      title: "Connecting Content, Players and Displays",
+      category: "Digital Signage · Deployment · Troubleshooting · Technical Operations",
+      summary:
+        "Technical work supporting the complete path between creative content and the physical screen. This includes media players, networks, live streams, content platforms, commercial displays and remote deployment across multiple locations.",
+      role: "Digital-signage specialist, technical investigator and creative systems support.",
+      systems: [
+        "BrightSign media players",
+        "Samsung commercial displays",
+        "Signagelive",
+        "iAdea players",
+        "Intel NUC players",
+        "IPTV and HLS streams",
+        "Web-based playback",
+        "Remote content deployment",
+        "Player monitoring",
+        "Network and server troubleshooting",
+      ],
+      quote1:
+        'A successful digital-signage project does not end when the animation is exported. The player must retrieve the file, the network must remain connected and the display must be correctly configured.',
+      quote2:
+        "My technical experience allows me to investigate the complete delivery chain instead of treating content creation and system operations as separate areas.",
+    },
   },
   {
     id: 4,
+    slug: "dickson-engraving",
     title: "Retail Design & Laser-Engraving Production",
+    category: "motion",
     description:
       "At Dickson Barbeque Centre I prepared logos and custom artwork for laser engraving while creating product labels, digital marketing materials, social-media visuals and promotional content in a high-volume retail environment.",
-    category: "motion",
-    image: "/images/project-dickson.jpg",
     tags: ["Illustrator", "Photoshop", "Brand Design"],
-    demo: "#",
+    dates: "July 2022 – May 2023",
+    caseStudy: {
+      title: "Retail Design and Laser-Engraving Production",
+      category: "Graphic Design · Branding · Production · Laser Engraving",
+      dates: "July 2022 – May 2023",
+      summary:
+        "At Dickson Barbeque Centre, I worked in a fast-paced customer and production environment, preparing logos and custom artwork for laser engraving while also creating labels and digital marketing materials.",
+      role: "Graphic Designer",
+      quote:
+        'Customers frequently arrived with low-resolution images, incomplete ideas or artwork that was not suitable for engraving. I translated those materials into clean, production-ready designs while helping clients understand what would create the strongest final result.',
+      lessons: [
+        "Precision and attention to detail",
+        "Fast design decision-making",
+        "Customer communication",
+        "Production preparation",
+        "Working within material and equipment limitations",
+        "Balancing creativity with practical requirements",
+      ],
+    },
   },
   {
     id: 5,
+    slug: "branding-visual-experiments",
     title: "Brand Identities & Visual Experiments",
-    description:
-      "A selection of identity systems, apparel graphics, editorial layouts, social campaigns and experimental visual concepts developed through freelance, academic and independent work — including an eco-conscious skate/surf clothing brand.",
     category: "motion",
-    image: "/images/project-branding.jpg",
+    description:
+      "A selection of identity systems, apparel graphics, editorial layouts, social campaigns and experimental visual concepts developed through freelance, academic and independent work.",
     tags: ["Branding", "Editorial", "Illustration"],
-    demo: "#",
+    caseStudy: {
+      title: "Brand Identities and Visual Experiments",
+      category: "Branding · Editorial Design · Illustration · UI/UX",
+      summary:
+        "A selection of identity systems, apparel graphics, editorial layouts, social campaigns and experimental visual concepts developed through freelance, academic and independent work.",
+      works: [
+        "Eco-conscious skate and surf clothing brand",
+        "Logo and identity design",
+        "Apparel illustrations and graphic stamps",
+        "T-shirt and handbag concepts",
+        "Packaging and product applications",
+        "Social-media campaigns",
+        "Editorial layouts",
+        "Website prototypes",
+        "Event branding",
+        "Illustration & Photography",
+      ],
+    },
   },
   {
     id: 6,
+    slug: "experimental-interfaces",
     title: "Interactive & Personal Technology Projects",
-    description:
-      "Independent projects exploring interface ideas, responsive design, live data, automation and emerging technologies — Tesla mobile dashboards, IPTV interfaces, charging-control apps, AI-assisted workflows and interactive signage prototypes.",
     category: "dev",
-    image: "/images/project-experimental.jpg",
+    description:
+      "Independent projects exploring interface ideas, responsive design, live data, automation and emerging technologies.",
     tags: ["Prototyping", "Creative Code", "React"],
     github: "#",
-    demo: "#",
+    caseStudy: {
+      title: "Interactive and Personal Technology Projects",
+      category: "UI/UX · Creative Code · Prototyping · Personal Projects",
+      summary:
+        "Independent projects used to explore new interface ideas, responsive design, live data, automation and emerging technologies.",
+      quote:
+        "Personal projects give me room to test ideas without the limitations of a client brief. I use them to explore interaction design, automation, responsive interfaces and how complex technology can be presented through a calm and intuitive experience.",
+    },
   },
 ];
-
-export const caseStudies = {
-  autovisiontv: {
-    title: "AutoVisionTV — Digital Signage Management Platform",
-    category: "Digital Signage · Product Design · Full-Stack Development · Technical Operations",
-    summary:
-      "AutoVisionTV is a custom web-based digital-signage platform created to organize displays, content, live channels and remote operations across commercial-screen networks. The platform connects creative content management with the technical systems responsible for delivering that content to physical displays.",
-    role: "Product design, UI/UX, creative development, full-stack web development, testing, deployment and technical support.",
-    work: [
-      "Dashboard and navigation structure",
-      "Responsive desktop and mobile interfaces",
-      "Dealership and location management",
-      "Display and media-player management",
-      "Content scheduling and preview tools",
-      "User-management workflows",
-      "Live-channel and IPTV interfaces",
-      "Remote-display controls",
-      "Stream-health monitoring",
-      "Analytics and system-status information",
-      "Backup and recovery tools",
-      "Firebase and GitHub integration",
-    ],
-    tech: "HTML, CSS, JavaScript, Firebase, GitHub, web APIs, IPTV, HLS streaming and digital-signage platforms.",
-    quote1: "Managing digital signage across multiple locations requires more than a visually attractive dashboard. The platform must make content, device status and remote controls easy to understand while remaining reliable enough for daily operations.",
-    quote2: "I contribute across both design and implementation. I shape the interface hierarchy, develop features, connect data, test deployment workflows and investigate technical issues involving players, streams, networks and displays.",
-  },
-  motion: {
-    title: "Motion Graphics for Commercial Screens",
-    category: "Motion Design · Art Direction · Digital Signage",
-    summary:
-      "Animated campaigns designed for automotive showrooms, waiting areas, reception displays and other commercial-screen environments. The work includes concept development, storyboards, style frames, animation, video editing and adaptation for multiple display formats.",
-    role: "Motion designer, visual designer and production specialist.",
-    process: [
-      "Understanding the campaign message",
-      "Developing the visual concept",
-      "Creating storyboards",
-      "Designing style frames",
-      "Animating the campaign",
-      "Adapting to different resolutions",
-      "Testing readability and playback",
-      "Preparing final deployment files",
-    ],
-    quote: "Commercial-screen content must communicate quickly and remain readable from a distance. I use clear hierarchy, controlled motion and concise messaging to create animation that works within real viewing environments.",
-  },
-  signage: {
-    title: "Connecting Content, Players and Displays",
-    category: "Digital Signage · Deployment · Troubleshooting · Technical Operations",
-    summary:
-      "Technical work supporting the complete path between creative content and the physical screen. This includes media players, networks, live streams, content platforms, commercial displays and remote deployment across multiple locations.",
-    role: "Digital-signage specialist, technical investigator and creative systems support.",
-    systems: [
-      "BrightSign media players",
-      "Samsung commercial displays",
-      "Signagelive",
-      "iAdea players",
-      "Intel NUC players",
-      "IPTV and HLS streams",
-      "Web-based playback",
-      "Remote content deployment",
-      "Player monitoring",
-      "Network and server troubleshooting",
-    ],
-    quote1: "A successful digital-signage project does not end when the animation is exported. The player must retrieve the file, the network must remain connected and the display must be correctly configured.",
-    quote2: "My technical experience allows me to investigate the complete delivery chain instead of treating content creation and system operations as separate areas.",
-  },
-  dickson: {
-    title: "Retail Design and Laser-Engraving Production",
-    category: "Graphic Design · Branding · Production · Laser Engraving",
-    dates: "July 2022 – May 2023",
-    summary:
-      "At Dickson Barbeque Centre, I worked in a fast-paced customer and production environment, preparing logos and custom artwork for laser engraving while also creating labels and digital marketing materials.",
-    quote: "Customers frequently arrived with low-resolution images, incomplete ideas or artwork that was not suitable for engraving. I translated those materials into clean, production-ready designs while helping clients understand what would create the strongest final result.",
-  },
-  branding: {
-    title: "Brand Identities and Visual Experiments",
-    category: "Branding · Editorial Design · Illustration · UI/UX",
-    summary:
-      "A selection of identity systems, apparel graphics, editorial layouts, social campaigns and experimental visual concepts developed through freelance, academic and independent work.",
-  },
-  experimental: {
-    title: "Interactive and Personal Technology Projects",
-    category: "UI/UX · Creative Code · Prototyping · Personal Projects",
-    summary:
-      "Independent projects used to explore new interface ideas, responsive design, live data, automation and emerging technologies.",
-    quote: "Personal projects give me room to test ideas without the limitations of a client brief. I use them to explore interaction design, automation, responsive interfaces and how complex technology can be presented through a calm and intuitive experience.",
-  },
-};
 
 export const experiences = [
   {
