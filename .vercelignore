@@ -1,4 +1,6 @@
-.git/lfs/
 node_modules/
 .next/
 public/.vercel/
+Portfolio 2026/
+*.mp4
+.DS_Store
