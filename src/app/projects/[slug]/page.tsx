@@ -76,7 +76,7 @@ export default function CaseStudyPage() {
     return (
       <section className="min-h-screen">
         {/* Header */}
-        <header className="sticky top-0 z-50 bg-[var(--bg-secondary)]/80 backdrop-blur-xl border-b border-[var(--border-color)]">
+        <header className="sticky top-0 z-50 bg-[var(--bg-secondary)] border-b border-[var(--border-color)]">
           <div className="max-w-5xl mx-auto px-6 py-4 flex items-center gap-4">
             <Link href="/#projects" onClick={() => router.push("/")}>
               <button className="inline-flex items-center gap-2 text-sm text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors cursor-pointer group">
@@ -118,6 +118,7 @@ export default function CaseStudyPage() {
           {/* ---- SanGo ---- */}
           <ImageGallery
             title="SanGo — Full Brand Identity"
+            description="Eco-conscious food brand built on sustainable ingredients and minimalist packaging design."
             images={[
               { file: "Prancheta 1@3x-100.jpg", alt: "SanGo brand mockup 1" },
               { file: "Prancheta 2@3x-100.jpg", alt: "SanGo brand mockup 2" },
@@ -133,6 +134,7 @@ export default function CaseStudyPage() {
           {/* ---- LOWKEY ---- */}
           <ImageGallery
             title="LOWKEY — Skate & Surf Brand"
+            description="Eco-conscious skate and surf clothing label that exceeded sales projections in its first week."
             images={[
               { file: "logo .png", alt: "LOWKEY logo primary" },
               { file: "logo g.png", alt: "LOWKEY logo green version" },
@@ -146,6 +148,7 @@ export default function CaseStudyPage() {
           {/* ---- Bonne Pooch ---- */}
           <ImageGallery
             title="Bonne Pooch — Pet Brand Identity"
+            description="Pet products brand with custom packaging, signboard and digital assets."
             images={[
               { file: "Dark.png", alt: "Bonne Pooch dark logo" },
               { file: "saco.png", alt: "Bonne Pooch bag design" },
@@ -157,6 +160,7 @@ export default function CaseStudyPage() {
           {/* ---- Laura Leone ---- */}
           <ImageGallery
             title="Laura Leone — Photographer Identity"
+            description="Photographer's visual identity with multiple logo variants for different backgrounds."
             images={[
               { file: "branco_branco.png", alt: "Laura Leone white logo" },
               { file: "branco.png", alt: "Laura Leone primary white" },
@@ -168,6 +172,7 @@ export default function CaseStudyPage() {
           {/* ---- Leticia Barreto (VET) ---- */}
           <ImageGallery
             title="Leticia Barreto — Veterinary Identity System"
+            description="Complete visual identity for a veterinary practice: logo, business cards, badges and presentation materials."
             images={[
               { file: "2.png", alt: "Leticia Barreto presentation 1" },
               { file: "Branco sem fundo.png", alt: "Leticia Barreto white version" },
@@ -184,6 +189,7 @@ export default function CaseStudyPage() {
           {/* ---- Fernanda Vasques (HandCraft) ---- */}
           <ImageGallery
             title="Fernanda Vasques — HandCraft Branding"
+            description="Brand presentation, business cards and identity system for a handmade crafts brand."
             images={[
               { file: "20989381.png", alt: "Fernanda Vasques identity" },
               { file: "5988027 - Copy.png", alt: "Fernanda Vasques mockup" },
@@ -195,6 +201,7 @@ export default function CaseStudyPage() {
           {/* ---- MehConnect ---- */}
           <ImageGallery
             title="MehConnect — Tech Branding"
+            description="Brand assets for a tech startup including jar label, bag identity and presentation deck."
             images={[
               { file: "2@3x-100.jpg", alt: "MehConnect brand presentation" },
               { file: "bag.png", alt: "MehConnect bag identity" },
@@ -206,6 +213,7 @@ export default function CaseStudyPage() {
           {/* ---- Open Studios ---- */}
           <ImageGallery
             title="Open Studios — Studio Identity"
+            description="Studio branding with logo grid system, product mockups and animated social media content."
             images={[
               { file: "cartao.png", alt: "Open Studios card layout" },
               { file: "Free_iPhone_11_Pro_Mockup_4 - Copy.png", alt: "Open Studios phone mockup" },
@@ -268,7 +276,7 @@ export default function CaseStudyPage() {
   return (
     <section className="min-h-screen">
       {/* Header */}
-      <header className="sticky top-0 z-50 bg-[var(--bg-secondary)]/80 backdrop-blur-xl border-b border-[var(--border-color)]">
+      <header className="sticky top-0 z-50 bg-[var(--bg-secondary)] border-b border-[var(--border-color)]">
         <div className="max-w-5xl mx-auto px-6 py-4 flex items-center gap-4">
           <Link href="/#projects" onClick={() => router.push("/")}>
             <button className="inline-flex items-center gap-2 text-sm text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors cursor-pointer group">

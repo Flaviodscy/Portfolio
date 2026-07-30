@@ -36,7 +36,7 @@ function ImageCard({ brand, index }: { brand: string; index: number }) {
   );
 }
 
-export default function ImageGallery({ title, images }: { title: string; images: ImageItem[] }) {
+export default function ImageGallery({ title, images, description }: { title: string; images: ImageItem[]; description?: string }) {
   const [modalIndex, setModalIndex] = useState<number | null>(null);
 
   if (images.length === 0) return null;
@@ -46,11 +46,16 @@ export default function ImageGallery({ title, images }: { title: string; images:
   const colors = BRAND_COLORS[brand] || ["#6b7280", "#4b5563"];
 
   return (
-    <div className="space-y-3">
-      <h4 className="text-lg font-bold text-[var(--text-primary)] flex items-center gap-2">
-        <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: `linear-gradient(135deg, ${colors[0]}, ${colors[1]})` }} />
-        {title}
-      </h4>
+    <div className="space-y-4">
+      <div>
+        <h4 className="text-lg font-bold text-[var(--text-primary)] flex items-center gap-2">
+          <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: `linear-gradient(135deg, ${colors[0]}, ${colors[1]})` }} />
+          {title}
+        </h4>
+        {description && (
+          <p className="text-sm text-[var(--text-muted)] mt-1 leading-relaxed">{description}</p>
+        )}
+      </div>
       <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
         {images.map((img, i) => (
           <button
