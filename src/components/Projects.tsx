@@ -21,14 +21,27 @@ const PROJECT_COLORS: Record<number, [string, string]> = {
   6: ["#38bdf8", "#0ea5e9"],       // Experimental — sky blue
 };
 
+// Contextual Unsplash images for each project card
+const PROJECT_IMAGES: Record<number, string> = {
+  1: "https://images.unsplash.com/photo-1551724192-cfe0bcf034c6?w=800&q=80",     // Digital signage screens
+  2: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&q=80",   // Abstract motion/gradient design
+  3: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&q=80",   // Tech screens/coding setup
+  4: "https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=800&q=80",     // Laser engraving craft
+  5: "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=800&q=80",    // Brand design/palette
+  6: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800&q=80",        // Experimental/creative tech
+};
+
 function ProjectImage({ project }: { project: (typeof projects)[number] }) {
   const colors = PROJECT_COLORS[project.id] || ["#4ade80", "#22c55e"];
-  // Each project has its own gradient card matching its accent color
   return (
-    <div className="absolute inset-0 overflow-hidden" style={{ background: `linear-gradient(135deg, ${colors[0]}30, ${colors[1]}10)` }}>
-      {/* Decorative elements */}
-      <div className="absolute top-4 right-6 w-20 h-20 rounded-full opacity-10" style={{ background: `radial-gradient(circle, ${colors[0]}, transparent)` }} />
-      <div className="absolute bottom-6 left-8 w-32 h-32 rounded-full opacity-5" style={{ background: `radial-gradient(circle, ${colors[1]}, transparent)` }} />
+    <div className="absolute inset-0 overflow-hidden bg-white/[0.02]">
+      <img
+        src={PROJECT_IMAGES[project.id]}
+        alt={`${project.title} preview`}
+        className="w-full h-full object-cover opacity-40"
+      />
+      {/* Tint overlay with project accent color */}
+      <div className="absolute inset-0" style={{ background: `linear-gradient(135deg, ${colors[0]}15, ${colors[1]}08)` }} />
     </div>
   );
 }

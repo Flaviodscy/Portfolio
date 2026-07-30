@@ -5,26 +5,50 @@ import Link from "next/link";
 import { projects } from "@/lib/data";
 import ImageGallery from "@/components/ImageGallery";
 
-const PROJECT_COLORS: Record<string, [string, string]> = {
-  autovisiontv: ["#4ade80", "#22c55e"],
-  "motion-for-screens": ["#f97316", "#ea580c"],
-  "digital-signage-systems": ["#2dd4bf", "#14b8a6"],
-  "dickson-engraving": ["#facc15", "#eab308"],
-  "branding-visual-experiments": ["#a78bfa", "#8b5cf6"],
-  "experimental-interfaces": ["#38bdf8", "#0ea5e9"],
+// Contextual images for each project banner
+const BANNER_IMAGES: Record<string, string> = {
+  autovisiontv: "https://images.unsplash.com/photo-1551724192-cfe0bcf034c6?w=1200&q=80",        // Digital signage screens
+  "motion-for-screens": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1200&q=80", // Abstract motion design
+  "dickson-engraving": "https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=1200&q=80", // Craft/engraving
+  "digital-signage-systems": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200&q=80", // Tech setup
+  "branding-visual-experiments": "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=1200&q=80", // Color/palette design
+  "experimental-interfaces": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=1200&q=80",   // Creative tech
 };
 
 function ProjectBanner({ title, slug }: { title: string; slug: string }) {
-  const colors = PROJECT_COLORS[slug] || ["#4ade80", "#22c55e"];
+  const bannerImage = BANNER_IMAGES[slug];
+  // Descriptions for each project
+  const descriptions: Record<string, string> = {
+    autovisiontv: "Custom web-based digital-signage platform organizing displays, content and remote operations.",
+    "motion-for-screens": "Animated campaigns for automotive showrooms, waiting areas and commercial-screen environments.",
+    "dickson-engraving": "Retail design and laser-engraving production in a high-volume customer environment.",
+    "digital-signage-systems": "Technical support across the full path from creative content to physical screen deployment.",
+    "branding-visual-experiments": "Identity systems, apparel graphics, editorial layouts and social campaigns.",
+    "experimental-interfaces": "Independent exploration of interface ideas, responsive design and emerging technologies.",
+  };
+  const desc = descriptions[slug];
+
   return (
-    <div className="relative w-full h-64 sm:h-80 rounded-2xl overflow-hidden border border-[var(--card-border)]" style={{ background: `linear-gradient(135deg, ${colors[0]}25, ${colors[1]}08)` }}>
-      {/* Decorative elements */}
-      <div className="absolute top-4 right-6 w-20 h-20 sm:w-32 sm:h-32 rounded-full opacity-10" style={{ background: `radial-gradient(circle, ${colors[0]}, transparent)` }} />
-      <div className="absolute bottom-6 left-8 w-32 h-32 sm:w-48 sm:h-48 rounded-full opacity-5" style={{ background: `radial-gradient(circle, ${colors[1]}, transparent)` }} />
-      {/* Project title watermark */}
-      <div className="absolute inset-0 flex items-center justify-center">
-        <span className="text-white/[0.06] font-bold text-4xl sm:text-5xl uppercase tracking-wider select-none whitespace-nowrap">{title.split(" — ")[0].split(" & ")[0]}</span>
-      </div>
+    <div className="relative w-full h-64 sm:h-80 rounded-2xl overflow-hidden border border-[var(--card-border)]">
+      {/* Banner photo */}
+      {bannerImage ? (
+        <img src={bannerImage} alt={`${title} banner`} className="w-full h-full object-cover" />
+      ) : (
+        <div className="absolute inset-0 bg-gradient-to-br from-green-500/10 to-transparent" />
+      )}
+      {/* Gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+      {/* Title + description watermark */}
+      {desc ? (
+        <div className="absolute bottom-8 left-8 sm:left-12 space-y-1">
+          <span className="text-white/90 text-2xl sm:text-3xl font-bold leading-tight block">{title.split(" — ")[0]}</span>
+          <span className="text-white/60 text-sm sm:text-base max-w-xl block">{desc}</span>
+        </div>
+      ) : (
+        <div className="absolute bottom-8 left-8 sm:left-12">
+          <span className="text-white/90 text-2xl sm:text-3xl font-bold leading-tight">{title.split(" — ")[0]}</span>
+        </div>
+      )}
     </div>
   );
 }
@@ -80,7 +104,7 @@ export default function CaseStudyPage() {
         </header>
 
         {/* Hero */}
-        <div className="max-w-5xl mx-auto px-6 pt-16 pb-8" style={{ background: "linear-gradient(135deg, #a78bfa20, #8b5cf608)" }}>
+        <div className="max-w-5xl mx-auto px-6 pt-16 pb-8">
           <span className="inline-block text-xs font-medium px-3 py-1 rounded-full bg-purple-500/10 text-purple-400 mb-6">
             Branding & Visual Identity
           </span>
@@ -114,6 +138,7 @@ export default function CaseStudyPage() {
 
           {/* ---- SanGo ---- */}
           <ImageGallery
+            brand="SanGo"
             title="SanGo — Full Brand Identity"
             description="Eco-conscious food brand built on sustainable ingredients and minimalist packaging design."
             images={[
@@ -130,6 +155,7 @@ export default function CaseStudyPage() {
 
           {/* ---- LOWKEY ---- */}
           <ImageGallery
+            brand="LOWKEY"
             title="LOWKEY — Skate & Surf Brand"
             description="Eco-conscious skate and surf clothing label that exceeded sales projections in its first week."
             images={[
@@ -144,6 +170,7 @@ export default function CaseStudyPage() {
 
           {/* ---- Bonne Pooch ---- */}
           <ImageGallery
+            brand="Bonne Pooch"
             title="Bonne Pooch — Pet Brand Identity"
             description="Pet products brand with custom packaging, signboard and digital assets."
             images={[
@@ -156,6 +183,7 @@ export default function CaseStudyPage() {
 
           {/* ---- Laura Leone ---- */}
           <ImageGallery
+            brand="Laura Leone"
             title="Laura Leone — Photographer Identity"
             description="Photographer's visual identity with multiple logo variants for different backgrounds."
             images={[
@@ -168,6 +196,7 @@ export default function CaseStudyPage() {
 
           {/* ---- Leticia Barreto (VET) ---- */}
           <ImageGallery
+            brand="Leticia Barreto"
             title="Leticia Barreto — Veterinary Identity System"
             description="Complete visual identity for a veterinary practice: logo, business cards, badges and presentation materials."
             images={[
@@ -185,6 +214,7 @@ export default function CaseStudyPage() {
 
           {/* ---- Fernanda Vasques (HandCraft) ---- */}
           <ImageGallery
+            brand="Fernanda Vasques"
             title="Fernanda Vasques — HandCraft Branding"
             description="Brand presentation, business cards and identity system for a handmade crafts brand."
             images={[
@@ -197,6 +227,7 @@ export default function CaseStudyPage() {
 
           {/* ---- MehConnect ---- */}
           <ImageGallery
+            brand="MehConnect"
             title="MehConnect — Tech Branding"
             description="Brand assets for a tech startup including jar label, bag identity and presentation deck."
             images={[
@@ -209,6 +240,7 @@ export default function CaseStudyPage() {
 
           {/* ---- Open Studios ---- */}
           <ImageGallery
+            brand="Open Studios"
             title="Open Studios — Studio Identity"
             description="Studio branding with logo grid system, product mockups and animated social media content."
             images={[
@@ -287,7 +319,7 @@ export default function CaseStudyPage() {
       </header>
 
       {/* Hero */}
-      <div className={`max-w-5xl mx-auto px-6 pt-16 pb-24 ${isMotion ? "bg-gradient-to-br from-green-500/[0.08] to-transparent" : "bg-gradient-to-br from-cyan-500/[0.08] to-transparent"}`}>
+      <div className="max-w-5xl mx-auto px-6 pt-16 pb-24">
         <span className={`inline-block text-xs font-medium px-3 py-1 rounded-full mb-6 ${isMotion ? "bg-green-500/10 text-green-400" : "bg-emerald-500/10 text-emerald-400"}`}>
           {project.category === "motion" ? "Motion & Design" : "Development & Ops"}
         </span>

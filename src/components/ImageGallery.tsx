@@ -36,14 +36,25 @@ function ImageCard({ brand, index }: { brand: string; index: number }) {
   );
 }
 
-export default function ImageGallery({ title, images, description }: { title: string; images: ImageItem[]; description?: string }) {
+export default function ImageGallery({ title, images, description, brand }: { title: string; images: ImageItem[]; description?: string; brand?: string }) {
   const [modalIndex, setModalIndex] = useState<number | null>(null);
 
   if (images.length === 0) return null;
 
-  // Extract brand name from first image filename
-  const brand = images[0].file.split(" ")[0];
-  const colors = BRAND_COLORS[brand] || ["#6b7280", "#4b5563"];
+  // Brand from prop or auto-detected from filename keywords
+  const slugBrand = brand || (() => {
+    const f = images[0].file.toLowerCase();
+    if (f.includes("sango") || f.includes("prancheta")) return "SanGo";
+    if (f.includes("lowkey")) return "LOWKEY";
+    if (f.includes("bonne") || f.includes("pooch")) return "Bonne Pooch";
+    if (f.includes("laura") || f.includes("leone")) return "Laura Leone";
+    if (f.includes("leticia") || f.includes("veterin")) return "Leticia Barreto";
+    if (f.includes("fernanda")) return "Fernanda Vasques";
+    if (f.includes("meh")) return "MehConnect";
+    if (f.includes("open") || f.includes("studio")) return "Open Studios";
+    return images[0].file.split(" ")[0];
+  })();
+  const colors = BRAND_COLORS[slugBrand] || ["#6b7280", "#4b5563"];
 
   return (
     <div className="space-y-4">
@@ -65,7 +76,7 @@ export default function ImageGallery({ title, images, description }: { title: st
           >
             {/* Real image */}
             <img
-              src={`/images/projects/branding-visual-experiments/${brand}/${img.file}`}
+              src={`/images/projects/branding-visual-experiments/${slugBrand}/${img.file}`}
               alt={img.alt}
               className="w-full h-full object-cover opacity-100"
               onError={(e) => {
