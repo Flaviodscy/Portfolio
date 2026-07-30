@@ -1,0 +1,4 @@
+.git/lfs/
+node_modules/
+.next/
+public/.vercel/

@@ -5,6 +5,44 @@ import Link from "next/link";
 import { projects } from "@/lib/data";
 import ImageGallery from "@/components/ImageGallery";
 
+const PROJECT_COLORS: Record<string, [string, string]> = {
+  autovisiontv: ["#4ade80", "#22c55e"],
+  "motion-for-screens": ["#f97316", "#ea580c"],
+  "digital-signage-systems": ["#2dd4bf", "#14b8a6"],
+  "dickson-engraving": ["#facc15", "#eab308"],
+  "branding-visual-experiments": ["#a78bfa", "#8b5cf6"],
+  "experimental-interfaces": ["#38bdf8", "#0ea5e9"],
+};
+
+function ProjectBanner({ title, slug }: { title: string; slug: string }) {
+  const colors = PROJECT_COLORS[slug] || ["#4ade80", "#22c55e"];
+  return (
+    <div className="relative w-full h-64 sm:h-80 rounded-2xl overflow-hidden border border-white/[0.06]">
+      <div className="absolute inset-0" style={{ background: `linear-gradient(135deg, ${colors[0]}20, ${colors[1]}08)` }} />
+      {/* Grid pattern */}
+      <div className="absolute inset-0 opacity-10"
+        style={{ backgroundImage: `linear-gradient(${colors[0]}33 1px, transparent 1px), linear-gradient(90deg, ${colors[0]}33 1px, transparent 1px)`, backgroundSize: '32px 32px' }} />
+      {/* Decorative circles */}
+      <div className="absolute top-8 right-16 w-32 h-32 rounded-full opacity-15" style={{ background: `radial-gradient(circle, ${colors[0]}, transparent)` }} />
+      <div className="absolute bottom-10 left-10 w-24 h-24 rounded-full opacity-10" style={{ background: `radial-gradient(circle, ${colors[1]}, transparent)` }} />
+      {/* Center icon */}
+      <div className="absolute inset-0 flex items-center justify-center">
+        <div className="w-20 h-20 rounded-2xl border-2 border-white/10 flex items-center justify-center" style={{ background: `${colors[0]}12` }}>
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke={colors[0]} strokeWidth={1.5} className="opacity-50">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+            <circle cx="8.5" cy="8.5" r="1.5" />
+            <polyline points="21 15 16 10 5 21" />
+          </svg>
+        </div>
+      </div>
+      {/* Bottom label */}
+      <div className="absolute bottom-4 left-4 px-3 py-1.5 rounded-md bg-black/40 backdrop-blur-sm">
+        <span className="text-[11px] text-white/60 font-mono">drop mockup here — public/images/projects/{slug}/hero.jpg</span>
+      </div>
+    </div>
+  );
+}
+
 const backArrow = (
   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
     <path d="M19 12H5" />
@@ -68,9 +106,7 @@ export default function CaseStudyPage() {
 
         {/* Full-width banner image */}
         <div className="max-w-5xl mx-auto px-6 pb-24">
-          <div className="w-full aspect-[21/9] rounded-2xl overflow-hidden bg-gradient-to-br from-green-500/15 to-emerald-600/15 border border-white/[0.06] flex items-center justify-center">
-            <span className="text-gray-600 text-sm">Brand Identities — Full Showreel</span>
-          </div>
+          <ProjectBanner title={cs.title} slug="branding-visual-experiments" />
         </div>
 
         {/* Content */}
@@ -261,9 +297,7 @@ export default function CaseStudyPage() {
 
       {/* Image placeholder area */}
       <div className={`max-w-5xl mx-auto px-6 pb-24`}>
-        <div className={`w-full aspect-video rounded-2xl overflow-hidden bg-gradient-to-br ${isMotion ? "from-green-500/15 to-emerald-600/15" : "from-cyan-500/15 to-emerald-500/15"} border border-white/[0.06]`}>
-          <span className="text-gray-600 text-sm">Drop your case-study image here — public/images/projects/{slug}/hero.jpg</span>
-        </div>
+        <ProjectBanner title={cs.title} slug={slug} />
       </div>
 
       {/* Content sections */}

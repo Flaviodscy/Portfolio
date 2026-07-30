@@ -8,26 +8,33 @@ interface ImageItem {
 }
 
 // Brand accent colors for placeholder cards
-const BRAND_COLORS: Record<string, string[]> = {
-  SanGo: ["#4ade80", "#22c55e", "#16a34a"],
-  LOWKEY: ["#f97316", "#ea580c", "#dc2626"],
-  "Bonne Pooch": ["#a78bfa", "#8b5cf6", "#7c3aed"],
-  "Laura Leone": ["#facc15", "#eab308", "#ca8a04"],
-  "Leticia Barreto": ["#2dd4bf", "#14b8a6", "#0d9488"],
-  "Fernanda Vasques": ["#fb7185", "#f43f5e", "#e11d48"],
-  MehConnect: ["#38bdf8", "#0ea5e9", "#0284c7"],
-  "Open Studios": ["#c084fc", "#a855f7", "#9333ea"],
+const BRAND_COLORS: Record<string, [string, string]> = {
+  SanGo: ["#4ade80", "#22c55e"],
+  LOWKEY: ["#f97316", "#ea580c"],
+  "Bonne Pooch": ["#a78bfa", "#8b5cf6"],
+  "Laura Leone": ["#facc15", "#eab308"],
+  "Leticia Barreto": ["#2dd4bf", "#14b8a6"],
+  "Fernanda Vasques": ["#fb7185", "#f43f5e"],
+  MehConnect: ["#38bdf8", "#0ea5e9"],
+  "Open Studios": ["#c084fc", "#a855f7"],
 };
 
 function PlaceholderCard({ brand, index }: { brand: string; index: number }) {
-  const colors = BRAND_COLORS[brand] || ["#6b7280", "#4b5563", "#374151"];
+  const colors = BRAND_COLORS[brand] || ["#6b7280", "#4b5563"];
   return (
-    <div className="relative w-full h-full flex items-center justify-center bg-gradient-to-br" style={{ background: `linear-gradient(135deg, ${colors[0]}22, ${colors[1]}11)` }}>
-      <div className="text-center">
-        <div className={`w-12 h-12 mx-auto mb-2 rounded-xl bg-gradient-to-br flex items-center justify-center text-white font-bold text-sm`} style={{ background: `linear-gradient(135deg, ${colors[0]}, ${colors[1]})` }}>
-          {brand.slice(0, 2).toUpperCase()}
-        </div>
-        <p className="text-[10px] text-gray-600 leading-tight px-1 truncate">{brand}</p>
+    <div className="relative w-full h-full flex items-center justify-center overflow-hidden rounded-xl" style={{ background: `linear-gradient(135deg, ${colors[0]}20, ${colors[1]}10)` }}>
+      {/* Decorative elements */}
+      <div className="absolute top-2 right-4 w-12 h-12 rounded-full opacity-15" style={{ background: `radial-gradient(circle, ${colors[0]}, transparent)` }} />
+      <div className="absolute bottom-3 left-3 px-2 py-1 rounded bg-black/40 backdrop-blur-sm">
+        <span className="text-[9px] text-white/50 font-mono uppercase">mockup {index + 1}</span>
+      </div>
+      {/* Center icon */}
+      <div className={`w-14 h-14 rounded-xl flex items-center justify-center border border-white/[0.08]`} style={{ background: `${colors[0]}12` }}>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={colors[0]} strokeWidth={1.5} className="opacity-50">
+          <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+          <circle cx="8.5" cy="8.5" r="1.5" />
+          <polyline points="21 15 16 10 5 21" />
+        </svg>
       </div>
     </div>
   );
@@ -40,10 +47,14 @@ export default function ImageGallery({ title, images }: { title: string; images:
 
   // Extract brand name from first image filename
   const brand = images[0].file.split(" ")[0];
+  const colors = BRAND_COLORS[brand] || ["#6b7280", "#4b5563"];
 
   return (
     <div className="space-y-3">
-      <h4 className="text-lg font-bold text-white">{title}</h4>
+      <h4 className="text-lg font-bold text-white flex items-center gap-2">
+        <span className="w-1.5 h-1.5 rounded-full" style={{ background: `linear-gradient(135deg, ${colors[0]}, ${colors[1]})` }} />
+        {title}
+      </h4>
       <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
         {images.map((img, i) => (
           <button
@@ -93,6 +104,11 @@ export default function ImageGallery({ title, images }: { title: string; images:
           <PlaceholderCard brand={brand} index={modalIndex} />
         </div>
       )}
+
+      {/* Replace instruction */}
+      <p className="text-xs text-gray-600 mt-2">
+        Drop mockup images into: <code className="bg-white/5 px-1 py-0.5 rounded">public/images/projects/branding-visual-experiments/{brand}/</code>
+      </p>
     </div>
   );
 }

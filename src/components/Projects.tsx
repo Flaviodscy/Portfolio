@@ -12,6 +12,48 @@ const tabs: { id: Category; label: string }[] = [
   { id: "dev", label: "Development & Ops" },
 ];
 
+const PROJECT_COLORS: Record<number, [string, string]> = {
+  1: ["#4ade80", "#22c55e"],       // AutoVisionTV — green
+  2: ["#f97316", "#ea580c"],       // Motion for screens — orange
+  3: ["#2dd4bf", "#14b8a6"],       // Digital signage — teal
+  4: ["#facc15", "#eab308"],       // Dickson — yellow
+  5: ["#a78bfa", "#8b5cf6"],       // Branding identity — purple
+  6: ["#38bdf8", "#0ea5e9"],       // Experimental — sky blue
+};
+
+function ProjectPlaceholder({ color1, color2 }: { color1: string; color2: string }) {
+  return (
+    <div className="relative w-full h-full overflow-hidden">
+      {/* Gradient background */}
+      <div className="absolute inset-0" style={{ background: `linear-gradient(135deg, ${color1}25, ${color2}10)` }} />
+
+      {/* Decorative circles */}
+      <div className="absolute top-4 right-8 w-20 h-20 rounded-full opacity-20" style={{ background: `radial-gradient(circle, ${color1}, transparent)` }} />
+      <div className="absolute bottom-6 left-6 w-14 h-14 rounded-full opacity-15" style={{ background: `radial-gradient(circle, ${color2}, transparent)` }} />
+
+      {/* Grid pattern */}
+      <div className="absolute inset-0 opacity-10"
+        style={{ backgroundImage: `linear-gradient(${color1}33 1px, transparent 1px), linear-gradient(90deg, ${color1}33 1px, transparent 1px)`, backgroundSize: '24px 24px' }} />
+
+      {/* Center icon */}
+      <div className="absolute inset-0 flex items-center justify-center">
+        <div className={`w-16 h-16 rounded-2xl flex items-center justify-center border-2 ${color1 === "#4ade80" || color1 === "#a78bfa" ? "border-white/10" : "border-white/15"}`} style={{ background: `${color1}15` }}>
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke={color1} strokeWidth={1.5} className="opacity-60">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+            <circle cx="8.5" cy="8.5" r="1.5" />
+            <polyline points="21 15 16 10 5 21" />
+          </svg>
+        </div>
+      </div>
+
+      {/* Bottom label */}
+      <div className="absolute bottom-3 left-3 px-2.5 py-1 rounded-md bg-black/40 backdrop-blur-sm">
+        <span className="text-[10px] text-white/60 font-mono">drop mockup here</span>
+      </div>
+    </div>
+  );
+}
+
 export default function Projects() {
   const [active, setActive] = useState<Category>("all");
   const [visible, setVisible] = useState<typeof projects>(projects);
@@ -59,19 +101,8 @@ export default function Projects() {
               onMouseLeave={() => setHoveredId(null)}
             >
               {/* Image area */}
-              <div className="relative h-48 bg-gradient-to-br from-green-500/10 to-emerald-500/10 overflow-hidden">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  {project.category === "motion" ? (
-                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1} className="text-green-300/30">
-                      <polygon points="5 3 19 12 5 21 5 3" />
-                    </svg>
-                  ) : (
-                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1} className="text-emerald-300/30">
-                      <polyline points="16 18 22 12 16 6" />
-                      <polyline points="8 6 2 12 8 18" />
-                    </svg>
-                  )}
-                </div>
+              <div className="relative h-48 overflow-hidden">
+                <ProjectPlaceholder color1={PROJECT_COLORS[project.id]?.[0] || "#4ade80"} color2={PROJECT_COLORS[project.id]?.[1] || "#22c55e"} />
                 {/* Overlay on hover */}
                 {hoveredId === project.id && (
                   <div className="absolute inset-0 bg-black/50 flex items-center justify-center gap-4 animate-fade-in">
@@ -110,6 +141,13 @@ export default function Projects() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Placeholder file reference */}
+        <div className="mt-8 text-center">
+          <p className="text-xs text-gray-600">
+            Place card image at: <code className="bg-white/5 px-1.5 py-0.5 rounded text-gray-500">public/images/projects/{projects[0]?.slug}/card.jpg</code>
+          </p>
         </div>
       </div>
     </section>
