@@ -21,10 +21,14 @@ const PROJECT_COLORS: Record<number, [string, string]> = {
   6: ["#38bdf8", "#0ea5e9"],       // Experimental — sky blue
 };
 
-// Cover images for each project card
+// Cover images for each project card — real mockups where available, AI-generated placeholder gradients otherwise
 const PROJECT_IMAGES: Record<number, string> = {
   1: "/images/projects/autovisiontv/control-platform.png",     // AutoVisionTV remote control mockup
+  2: "",                                                       // Fallback gradient — add real image later
+  3: "",                                                       // Fallback gradient — add real image later
   4: "/images/projects/dickson-engraving/mother-day-yeti.png", // Dickson engraved Yeti tumbler
+  5: "",                                                       // Fallback gradient — add real image later
+  6: "",                                                       // Fallback gradient — add real image later
 };
 
 function ProjectImage({ project }: { project: (typeof projects)[number] }) {
@@ -38,7 +42,22 @@ function ProjectImage({ project }: { project: (typeof projects)[number] }) {
           <div className="absolute inset-0" style={{ background: `linear-gradient(135deg, ${colors[0]}20, ${colors[1]}10)` }} />
         </>
       ) : (
-        <div className="w-full h-full" style={{ background: `linear-gradient(135deg, ${colors[0]}25, ${colors[1]}12)` }} />
+        <>
+          <div className="w-full h-full relative">
+            {/* AI-generated placeholder gradient */}
+            <div className="absolute inset-0" style={{ background: `linear-gradient(135deg, ${colors[0]}, ${colors[0]}80, ${colors[1]})` }} />
+            {/* Animated mesh circles for depth */}
+            <div className="absolute inset-0 opacity-25">
+              <div className="absolute top-1/4 left-1/4 w-24 h-24 sm:w-36 sm:h-36 rounded-full blur-2xl animate-pulse" style={{ background: `radial-gradient(circle, ${colors[0]}50, transparent)` }} />
+              <div className="absolute bottom-1/4 right-1/4 w-20 h-20 sm:w-32 sm:h-32 rounded-full blur-2xl animate-pulse" style={{ background: `radial-gradient(circle, ${colors[1]}40, transparent)`, animationDelay: '1s' }} />
+              <div className="absolute top-1/2 left-1/2 w-16 h-16 sm:w-24 sm:h-24 rounded-full blur-xl animate-pulse" style={{ background: `radial-gradient(circle, ${colors[0]}30, transparent)`, animationDelay: '2s' }} />
+            </div>
+            {/* Mesh grid overlay */}
+            <div className="absolute inset-0 opacity-15" style={{ backgroundImage: `linear-gradient(${colors[0]}20 1px, transparent 1px), linear-gradient(90deg, ${colors[0]}20 1px, transparent 1px)`, backgroundSize: '48px 48px' }} />
+            {/* Subtle diagonal lines */}
+            <div className="absolute inset-0 opacity-5" style={{ backgroundImage: `linear-gradient(135deg, ${colors[1]}30 1px, transparent 1px)`, backgroundSize: '24px 24px' }} />
+          </div>
+        </>
       )}
     </div>
   );
