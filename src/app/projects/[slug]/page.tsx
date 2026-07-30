@@ -17,24 +17,14 @@ const PROJECT_COLORS: Record<string, [string, string]> = {
 function ProjectBanner({ title, slug }: { title: string; slug: string }) {
   const colors = PROJECT_COLORS[slug] || ["#4ade80", "#22c55e"];
   return (
-    <div className="relative w-full h-64 sm:h-80 rounded-2xl overflow-hidden border border-[var(--card-border)]">
-      {/* Real hero image */}
-      <img
-        src={`/images/projects/${slug}/hero.jpg`}
-        alt={`${title} — Hero`}
-        className="w-full h-full object-cover"
-        onError={(e) => {
-          const el = e.target as HTMLImageElement;
-          el.style.display = "none";
-          // Fallback to gradient if no hero image exists
-          const fallback = document.createElement("div");
-          fallback.className = "absolute inset-0 flex items-center justify-center rounded-2xl";
-          fallback.style.background = `linear-gradient(135deg, ${colors[0]}20, ${colors[1]}08)`;
-          el.parentElement!.appendChild(fallback);
-        }}
-      />
-      {/* Overlay gradient on image */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent pointer-events-none" />
+    <div className="relative w-full h-64 sm:h-80 rounded-2xl overflow-hidden border border-[var(--card-border)]" style={{ background: `linear-gradient(135deg, ${colors[0]}25, ${colors[1]}08)` }}>
+      {/* Decorative elements */}
+      <div className="absolute top-4 right-6 w-20 h-20 sm:w-32 sm:h-32 rounded-full opacity-10" style={{ background: `radial-gradient(circle, ${colors[0]}, transparent)` }} />
+      <div className="absolute bottom-6 left-8 w-32 h-32 sm:w-48 sm:h-48 rounded-full opacity-5" style={{ background: `radial-gradient(circle, ${colors[1]}, transparent)` }} />
+      {/* Project title watermark */}
+      <div className="absolute inset-0 flex items-center justify-center">
+        <span className="text-white/[0.06] font-bold text-4xl sm:text-5xl uppercase tracking-wider select-none whitespace-nowrap">{title.split(" — ")[0].split(" & ")[0]}</span>
+      </div>
     </div>
   );
 }
@@ -90,8 +80,8 @@ export default function CaseStudyPage() {
         </header>
 
         {/* Hero */}
-        <div className="max-w-5xl mx-auto px-6 pt-16 pb-24 bg-gradient-to-br from-green-500/[0.08] to-transparent">
-          <span className="inline-block text-xs font-medium px-3 py-1 rounded-full bg-green-500/10 text-green-400 mb-6">
+        <div className="max-w-5xl mx-auto px-6 pt-16 pb-8" style={{ background: "linear-gradient(135deg, #a78bfa20, #8b5cf608)" }}>
+          <span className="inline-block text-xs font-medium px-3 py-1 rounded-full bg-purple-500/10 text-purple-400 mb-6">
             Branding & Visual Identity
           </span>
           <h1 className="text-3xl sm:text-5xl font-bold leading-tight text-[var(--text-primary)] mb-6">{cs.title}</h1>
@@ -100,9 +90,16 @@ export default function CaseStudyPage() {
           </p>
         </div>
 
-        {/* Full-width banner image */}
+        {/* Banner with brand grid pattern */}
         <div className="max-w-5xl mx-auto px-6 pb-24">
-          <ProjectBanner title={cs.title} slug="branding-visual-experiments" />
+          <div className="relative w-full h-64 sm:h-80 rounded-2xl overflow-hidden border border-[var(--card-border)]" style={{ background: "linear-gradient(135deg, #a78bfa15, #8b5cf608)" }}>
+            <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "linear-gradient(#8b5cf633 1px, transparent 1px), linear-gradient(90deg, #8b5cf633 1px, transparent 1px)", backgroundSize: '32px 32px' }} />
+            <div className="absolute top-4 right-6 w-32 h-32 rounded-full opacity-10" style={{ background: "radial-gradient(circle, #a78bfa, transparent)" }} />
+            <div className="absolute bottom-6 left-8 w-48 h-48 rounded-full opacity-5" style={{ background: "radial-gradient(circle, #8b5cf6, transparent)" }} />
+            <div className="absolute inset-0 flex items-center justify-center">
+              <span className="text-white/[0.06] font-bold text-4xl sm:text-5xl uppercase tracking-wider select-none">Brand Identities</span>
+            </div>
+          </div>
         </div>
 
         {/* Content */}

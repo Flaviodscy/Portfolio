@@ -23,21 +23,13 @@ const PROJECT_COLORS: Record<number, [string, string]> = {
 
 function ProjectImage({ project }: { project: (typeof projects)[number] }) {
   const colors = PROJECT_COLORS[project.id] || ["#4ade80", "#22c55e"];
+  // Each project has its own gradient card matching its accent color
   return (
-    <img
-      src={`/images/projects/${project.slug}/card.jpg`}
-      alt={`${project.title} preview`}
-      className="w-full h-full object-cover"
-      onError={(e) => {
-        const el = e.target as HTMLImageElement;
-        el.style.display = "none";
-        // Fallback gradient if no card image exists yet
-        const fallback = document.createElement("div");
-        fallback.style.background = `linear-gradient(135deg, ${colors[0]}25, ${colors[1]}10)`;
-        fallback.className = "absolute inset-0 flex items-center justify-center";
-        el.parentElement!.appendChild(fallback);
-      }}
-    />
+    <div className="absolute inset-0 overflow-hidden" style={{ background: `linear-gradient(135deg, ${colors[0]}30, ${colors[1]}10)` }}>
+      {/* Decorative elements */}
+      <div className="absolute top-4 right-6 w-20 h-20 rounded-full opacity-10" style={{ background: `radial-gradient(circle, ${colors[0]}, transparent)` }} />
+      <div className="absolute bottom-6 left-8 w-32 h-32 rounded-full opacity-5" style={{ background: `radial-gradient(circle, ${colors[1]}, transparent)` }} />
+    </div>
   );
 }
 
