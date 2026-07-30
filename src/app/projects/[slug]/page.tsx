@@ -7,12 +7,12 @@ import ImageGallery from "@/components/ImageGallery";
 
 // Contextual images for each project banner
 const BANNER_IMAGES: Record<string, string> = {
-  autovisiontv: "https://images.unsplash.com/photo-1551724192-cfe0bcf034c6?w=1200&q=80",        // Digital signage screens
-  "motion-for-screens": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1200&q=80", // Abstract motion design
-  "dickson-engraving": "https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=1200&q=80", // Craft/engraving
-  "digital-signage-systems": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200&q=80", // Tech setup
-  "branding-visual-experiments": "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=1200&q=80", // Color/palette design
-  "experimental-interfaces": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=1200&q=80",   // Creative tech
+  autovisiontv: "/images/projects/autovisiontv/control-platform.png",           // AutoVisionTV mockup
+  "motion-for-screens": "",                                                      // Needs real image
+  "dickson-engraving": "/images/projects/dickson-engraving/mother-day-yeti.png", // Dickson work photo
+  "digital-signage-systems": "",                                                 // Needs real image
+  "branding-visual-experiments": "",                                             // Needs real image
+  "experimental-interfaces": "",                                                 // Needs real image
 };
 
 function ProjectBanner({ title, slug }: { title: string; slug: string }) {
