@@ -344,8 +344,8 @@ export default function CaseStudyPage() {
           {/* Supporting renders */}
           <div className="grid sm:grid-cols-3 gap-4">
             {[
-              { src: "/images/projects/autovisiontv/Banner.png", alt: "AutoVisionTV banner showcase" },
               { src: "/images/projects/autovisiontv/square.png", alt: "AutoVisionTV square mockup" },
+              { src: "/images/projects/autovisiontv/Banner.png", alt: "AutoVisionTV banner showcase" },
               { src: "/images/projects/autovisiontv/3d-render.png", alt: "AutoVisionTV 3D render" },
             ].map((img, i) => (
               <div key={i} className="rounded-2xl overflow-hidden bg-[var(--card-bg)] border border-[var(--card-border)]">
@@ -359,30 +359,50 @@ export default function CaseStudyPage() {
           <ProjectBanner title={cs.title} slug={slug} />
         </div>
       )}
-      {slug === "autovisiontv" && (
-        <div className="space-y-4 max-w-5xl mx-auto px-6 pb-12">
-          <h4 className="text-lg font-bold text-[var(--text-primary)] flex items-center gap-2">
-            <span className="w-1.5 h-1.5 rounded-full shrink-0 bg-gradient-to-r from-green-400 to-emerald-400" />
-            Remote Control for Digital Signage — Product Mockups
-          </h4>
-          <p className="text-sm text-[var(--text-muted)] mt-1 leading-relaxed">
-            Mobile app and web dashboard mockups showing the remote-control interface for managing digital-signage displays across dealership networks.
-          </p>
-          {/* Banner — full width */}
-          <div className="rounded-2xl overflow-hidden bg-[var(--card-bg)] border border-[var(--card-border)]">
-            <img src="/images/projects/autovisiontv/Banner.png" alt="Remote control banner showcase" className="w-full h-auto object-cover" />
-          </div>
-          {/* Square + renders — row */}
-          <div className="grid sm:grid-cols-3 gap-4">
-            {[
-              { src: "/images/projects/autovisiontv/square.png", alt: "Remote control app square mockup" },
-              { src: "/images/projects/autovisiontv/3d-render.png", alt: "3D render composition" },
-              { src: "/images/projects/autovisiontv/gradient-render.png", alt: "Gradient render composition" },
-            ].map((img, i) => (
-              <div key={i} className="rounded-2xl overflow-hidden bg-[var(--card-bg)] border border-[var(--card-border)] group cursor-pointer">
-                <img src={img.src} alt={img.alt} className="w-full h-auto object-cover" />
-              </div>
-            ))}
+
+      {/* Dickson Engraving gallery (work photos + videos + catalog) */}
+      {slug === "dickson-engraving" && (
+        <div className="space-y-12 max-w-5xl mx-auto px-6 pb-24">
+          {/* Photo grid — real work from the shop */}
+          <div>
+            <h4 className="text-lg font-bold text-[var(--text-primary)] flex items-center gap-2 mb-3">
+              <span className="w-1.5 h-1.5 rounded-full shrink-0 bg-gradient-to-r from-yellow-400 to-amber-400" />
+              From the Shop — Engraving Work
+            </h4>
+            <p className="text-sm text-[var(--text-muted)] mt-1 mb-6 leading-relaxed">
+              Finished engravings on customer products: Yeti tumblers, custom pieces, and event-ready artwork. Full days of in-shop engraving for our annual pre-set design catalog.
+            </p>
+            <div className="grid sm:grid-cols-2 gap-4 mb-8">
+              {[
+                { src: "/images/projects/dickson-engraving/mother-day-yeti.png", alt: "Mother's Day engraved Yeti wine tumbler" },
+              ].map((img, i) => (
+                <div key={i} className="rounded-2xl overflow-hidden bg-[var(--card-bg)] border border-[var(--card-border)]">
+                  <img src={img.src} alt={img.alt} className="w-full h-auto object-cover" />
+                </div>
+              ))}
+            </div>
+
+            {/* Videos — full width */}
+            <div className="space-y-6">
+              {[
+                { src: "/images/projects/dickson-engraving/workday-video.mp4", alt: "Sneak peek into a day at Dickson Engraving" },
+                { src: "/images/projects/dickson-engraving/design-video.mp4", alt: "Design and engraving process showcase" },
+              ].map((vid, i) => (
+                <div key={i} className="rounded-2xl overflow-hidden bg-[var(--card-bg)] border border-[var(--card-border)]">
+                  <video src={vid.src} controls playsInline className="w-full h-auto object-cover" />
+                </div>
+              ))}
+            </div>
+
+            {/* PDF catalog download */}
+            <a href="/downloads/pre-set-designs-2023.pdf" target="_blank" className="inline-flex items-center gap-2 px-6 py-3 mt-8 bg-gradient-to-r from-yellow-500 to-amber-500 text-white font-medium rounded-full hover:opacity-90 transition-opacity cursor-pointer">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="7 10 12 15 17 10" />
+                <line x1="12" y1="15" x2="12" y2="3" />
+              </svg>
+              Download Pre-Set Designs Catalog (PDF)
+            </a>
           </div>
         </div>
       )}
