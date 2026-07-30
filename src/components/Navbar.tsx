@@ -75,7 +75,7 @@ export default function Navbar() {
           className="md:hidden text-[var(--text-secondary)] cursor-pointer"
           onClick={() => setMobileOpen(!mobileOpen)}
         >
-          <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth={2}>
+          <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth={2}>
             {mobileOpen ? (
               <path d="M6 6l12 12M6 18L18 6" />
             ) : (

@@ -60,8 +60,8 @@ export default function Projects() {
     <section id="projects" className="py-32 px-6">
       <div className="max-w-5xl mx-auto">
         <div className="reveal text-center mb-16">
-          <h2 className="text-sm font-semibold text-green-400 uppercase tracking-widest mb-4">Portfolio</h2>
-          <h3 className="text-3xl sm:text-4xl font-bold mb-8">
+          <h2 className="text-sm font-bold uppercase tracking-widest mb-4">Portfolio</h2>
+          <h3 className="text-3xl sm:text-4xl font-extrabold mb-8">
             Selected <span className="gradient-text">work</span>
           </h3>
 
@@ -71,10 +71,10 @@ export default function Projects() {
               <button
                 key={tab.id}
                 onClick={() => setActive(tab.id)}
-                className={`px-5 py-2 rounded-full text-sm font-medium transition-all ${
+                className={`px-5 py-2 rounded-full text-sm font-semibold transition-all ${
                   active === tab.id
                     ? "bg-gradient-to-r from-green-500 to-emerald-500 text-white"
-                    : "text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
+                    : "text-[var(--text-muted)] hover:text-[var(--text-primary)]"
                 }`}
               >
                 {tab.label}
@@ -116,17 +116,17 @@ export default function Projects() {
                 {/* Content */}
                 <div className="p-6 space-y-3">
                   <div className="flex items-center gap-2">
-                    <span className={`text-xs font-medium px-2.5 py-0.5 rounded-full ${
+                    <span className={`text-xs font-bold px-2.5 py-0.5 rounded-full ${
                       project.category === "motion" ? "bg-green-500/10 text-green-400" : "bg-emerald-500/10 text-emerald-400"
                     }`}>
                       {project.category === "motion" ? "Design" : "Dev"}
                     </span>
                   </div>
-                  <h4 className="text-lg font-bold leading-snug group-hover:text-green-600 transition-colors">{project.title}</h4>
-                  <p className="text-sm text-[var(--text-muted)] leading-relaxed">{project.description}</p>
+                  <h4 className="text-lg font-extrabold leading-snug group-hover:text-green-600 transition-colors">{project.title}</h4>
+                  <p className="text-sm font-medium text-[var(--text-muted)] leading-relaxed">{project.description}</p>
                   <div className="flex flex-wrap gap-2 pt-1">
                     {project.tags.map((tag) => (
-                      <span key={tag} className="text-xs bg-[var(--bg-tertiary)] px-2 py-1 rounded text-[var(--text-secondary)]">
+                      <span key={tag} className="text-xs bg-[var(--bg-tertiary)] px-2 py-1 rounded font-medium text-[var(--text-secondary)]">
                         {tag}
                       </span>
                     ))}

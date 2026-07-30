@@ -18,12 +18,12 @@ export default function Contact() {
       <div className="max-w-5xl mx-auto space-y-24">
         {/* Philosophy */}
         <div className="reveal">
-          <h2 className="text-center text-sm font-semibold text-green-400 uppercase tracking-widest mb-12">Design Philosophy</h2>
+          <h2 className="text-center text-sm font-bold uppercase tracking-widest mb-12">Design Philosophy</h2>
           <div className="grid sm:grid-cols-3 gap-8">
             {philosophy.map((p, i) => (
               <div key={i} className="text-center p-6 bg-[var(--card-bg)] border border-[var(--card-border)] rounded-xl">
-                <h4 className="text-lg font-bold mb-2 text-[var(--text-primary)]">{p.title}</h4>
-                <p className="text-sm text-[var(--text-muted)] leading-relaxed">{p.description}</p>
+                <h4 className="text-lg font-extrabold mb-2 text-[var(--text-primary)]">{p.title}</h4>
+                <p className="text-sm font-medium text-[var(--text-muted)] leading-relaxed">{p.description}</p>
               </div>
             ))}
           </div>
@@ -31,17 +31,17 @@ export default function Contact() {
 
         {/* Contact */}
         <div className="reveal text-center">
-          <h2 className="text-sm font-semibold text-green-400 uppercase tracking-widest mb-4">Get in Touch</h2>
-          <h3 className="text-3xl sm:text-5xl font-bold mb-6">
+          <h2 className="text-sm font-bold uppercase tracking-widest mb-4 text-green-400">Get in Touch</h2>
+          <h3 className="text-3xl sm:text-5xl font-extrabold mb-6 text-[var(--text-primary)]">
             Let's create something that deserves the <span className="gradient-text">screen.</span>
           </h3>
-          <p className="text-[var(--text-muted)] text-lg mb-12 max-w-xl mx-auto">
+          <p className="text-[var(--text-muted)] text-lg font-medium mb-12 max-w-xl mx-auto leading-relaxed">
             Available for motion design, digital-signage projects, interface design and creative-technology collaborations.
           </p>
 
           <a
             href={`mailto:${personalInfo.email}`}
-            className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-green-500 to-emerald-500 text-white font-medium rounded-full hover:opacity-90 transition-opacity cursor-pointer mb-12"
+            className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-green-500 to-emerald-500 text-white font-bold rounded-full hover:opacity-90 transition-opacity cursor-pointer mb-12"
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
               <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
@@ -52,11 +52,11 @@ export default function Contact() {
 
           {/* Contact details */}
           <div className="flex flex-wrap items-center justify-center gap-8 mb-12 text-[var(--text-muted)]">
-            <span className="inline-flex items-center gap-2 text-sm">
+            <span className="inline-flex items-center gap-2 text-sm font-semibold">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" /><circle cx="12" cy="10" r="3" /></svg>
               {personalInfo.location}
             </span>
-            <span className="inline-flex items-center gap-2 text-sm">
+            <span className="inline-flex items-center gap-2 text-sm font-semibold">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
               {personalInfo.phone}
             </span>
@@ -70,7 +70,7 @@ export default function Contact() {
                 href={link.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[var(--text-muted)] hover:text-green-400 transition-colors p-2 cursor-pointer"
+                className="text-[var(--text-muted)] hover:text-green-400 transition-colors p-2 cursor-pointer font-semibold"
                 aria-label={link.label}
               >
                 {SocialIcon[link.icon]}

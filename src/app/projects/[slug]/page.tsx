@@ -332,6 +332,35 @@ export default function CaseStudyPage() {
         <ProjectBanner title={cs.title} slug={slug} />
       </div>
 
+      {/* BFA Remote Control gallery (AutovisionTV only) */}
+      {slug === "autovisiontv" && (
+        <div className="space-y-4 max-w-5xl mx-auto px-6 pb-12">
+          <h4 className="text-lg font-bold text-[var(--text-primary)] flex items-center gap-2">
+            <span className="w-1.5 h-1.5 rounded-full shrink-0 bg-gradient-to-r from-green-400 to-emerald-400" />
+            Remote Control for Digital Signage — Product Mockups
+          </h4>
+          <p className="text-sm text-[var(--text-muted)] mt-1 leading-relaxed">
+            Mobile app and web dashboard mockups showing the remote-control interface for managing digital-signage displays across dealership networks.
+          </p>
+          {/* Banner — full width */}
+          <div className="rounded-2xl overflow-hidden bg-[var(--card-bg)] border border-[var(--card-border)]">
+            <img src="/images/projects/autovisiontv/Banner.png" alt="Remote control banner showcase" className="w-full h-auto object-cover" />
+          </div>
+          {/* Square + renders — row */}
+          <div className="grid sm:grid-cols-3 gap-4">
+            {[
+              { src: "/images/projects/autovisiontv/square.png", alt: "Remote control app square mockup" },
+              { src: "/images/projects/autovisiontv/3d-render.png", alt: "3D render composition" },
+              { src: "/images/projects/autovisiontv/gradient-render.png", alt: "Gradient render composition" },
+            ].map((img, i) => (
+              <div key={i} className="rounded-2xl overflow-hidden bg-[var(--card-bg)] border border-[var(--card-border)] group cursor-pointer">
+                <img src={img.src} alt={img.alt} className="w-full h-auto object-cover" />
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
       {/* Content sections */}
       <div className="max-w-5xl mx-auto px-6 space-y-24 pb-32">
         {cs.role && (

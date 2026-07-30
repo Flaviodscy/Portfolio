@@ -26,18 +26,18 @@ export default function About() {
 
           {/* Bio */}
           <div className="space-y-6">
-            <h2 className="text-sm font-semibold text-purple-400 uppercase tracking-widest">About Me</h2>
-            <h3 className="text-3xl sm:text-4xl font-bold text-[var(--text-primary)]">
+            <h2 className="text-sm font-bold uppercase tracking-widest text-purple-400">About Me</h2>
+            <h3 className="text-3xl sm:text-4xl font-extrabold text-[var(--text-primary)]">
               My work sits between <span className="gradient-text">visual communication</span> and technical implementation.
             </h3>
             {personalInfo.bio.split("\n\n").map((paragraph, i) => (
-              <p key={i} className="text-[var(--text-secondary)] leading-relaxed text-lg">
+              <p key={i} className="text-[var(--text-secondary)] leading-relaxed text-lg font-medium">
                 {paragraph}
               </p>
             ))}
             <a
               href={personalInfo.resumeUrl}
-              className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--card-bg)] border border-[var(--card-border)] rounded-full text-sm font-medium hover:bg-[var(--bg-tertiary)] transition-colors cursor-pointer"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--card-bg)] border border-[var(--card-border)] rounded-full text-sm font-semibold hover:bg-[var(--bg-tertiary)] transition-colors cursor-pointer"
             >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />

@@ -33,13 +33,13 @@ export default function Hero() {
 
       <div className="relative z-10 text-center px-6 max-w-4xl">
         {/* Status badge */}
-        <div className="animate-fade-in-up mb-8 inline-flex items-center gap-2 bg-[var(--card-bg)] border border-[var(--border-color)] rounded-full px-4 py-2 text-sm text-[var(--text-muted)]">
+        <div className="animate-fade-in-up mb-8 inline-flex items-center gap-2 bg-[var(--card-bg)] border border-[var(--border-color)] rounded-full px-4 py-2 text-sm font-semibold text-[var(--text-secondary)]">
           <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
           Toronto, Canada
         </div>
 
         {/* Headline */}
-        <h1 className="animate-fade-in-up text-5xl sm:text-7xl lg:text-8xl font-bold tracking-tight mb-6 leading-[1.05]">
+        <h1 className="animate-fade-in-up text-5xl sm:text-7xl lg:text-8xl font-extrabold tracking-tight mb-6 leading-[1.05]">
           Motion,
           <br />
           systems
@@ -52,7 +52,7 @@ export default function Hero() {
           {personalInfo.titles.map((title, i) => (
             <span
               key={title}
-              className="text-lg sm:text-xl text-[var(--text-secondary)]"
+              className="text-lg sm:text-xl font-semibold text-[var(--text-primary)]"
               style={{ animation: "fadeInUp 0.6s ease-out both", animationDelay: `${0.4 + i * 0.15}s` }}
             >
               {title}
@@ -65,7 +65,7 @@ export default function Hero() {
 
         {/* Intro */}
         <p
-          className="animate-fade-in-up text-lg sm:text-xl text-[var(--text-muted)] max-w-2xl mx-auto mb-12 leading-relaxed"
+          className="animate-fade-in-up text-lg sm:text-xl font-medium text-[var(--text-muted)] max-w-2xl mx-auto mb-12 leading-relaxed"
           style={{ animationDelay: "0.8s" }}
         >
           I design animated content, interfaces and digital-signage experiences—and understand the technology required to make them work reliably in the real world.
@@ -78,13 +78,13 @@ export default function Hero() {
         >
           <button
             onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
-            className="px-8 py-3.5 bg-gradient-to-r from-green-500 to-emerald-500 text-white font-medium rounded-full hover:opacity-90 transition-opacity cursor-pointer animate-pulse-glow w-full sm:w-auto"
+            className="px-8 py-3.5 bg-gradient-to-r from-green-500 to-emerald-500 text-white font-semibold rounded-full hover:opacity-90 transition-opacity cursor-pointer animate-pulse-glow w-full sm:w-auto"
           >
             View Selected Work
           </button>
           <button
             onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
-            className="px-8 py-3.5 border border-[var(--border-color)] text-[var(--text-primary)] font-medium rounded-full hover:bg-[var(--bg-tertiary)] transition-colors cursor-pointer w-full sm:w-auto"
+            className="px-8 py-3.5 border border-[var(--border-color)] text-[var(--text-primary)] font-semibold rounded-full hover:bg-[var(--bg-tertiary)] transition-colors cursor-pointer w-full sm:w-auto"
           >
             Contact
           </button>
