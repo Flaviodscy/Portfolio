@@ -47,7 +47,7 @@ export default function ImageGallery({ title, images }: { title: string; images:
 
   return (
     <div className="space-y-3">
-      <h4 className="text-lg font-bold text-white flex items-center gap-2">
+      <h4 className="text-lg font-bold text-[var(--text-primary)] flex items-center gap-2">
         <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: `linear-gradient(135deg, ${colors[0]}, ${colors[1]})` }} />
         {title}
       </h4>
@@ -56,7 +56,7 @@ export default function ImageGallery({ title, images }: { title: string; images:
           <button
             key={i}
             onClick={() => setModalIndex(i)}
-            className="relative aspect-video rounded-xl overflow-hidden bg-white/[0.03] border border-white/[0.06] group cursor-pointer"
+            className="relative aspect-video rounded-xl overflow-hidden bg-[var(--card-bg)] border border-[var(--card-border)] group cursor-pointer"
           >
             {/* Real image */}
             <img

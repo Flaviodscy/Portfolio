@@ -21,9 +21,9 @@ export default function Contact() {
           <h2 className="text-center text-sm font-semibold text-green-400 uppercase tracking-widest mb-12">Design Philosophy</h2>
           <div className="grid sm:grid-cols-3 gap-8">
             {philosophy.map((p, i) => (
-              <div key={i} className="text-center p-6 bg-white/[0.02] border border-white/[0.04] rounded-xl">
-                <h4 className="text-lg font-bold mb-2">{p.title}</h4>
-                <p className="text-sm text-gray-500 leading-relaxed">{p.description}</p>
+              <div key={i} className="text-center p-6 bg-[var(--card-bg)] border border-[var(--card-border)] rounded-xl">
+                <h4 className="text-lg font-bold mb-2 text-[var(--text-primary)]">{p.title}</h4>
+                <p className="text-sm text-[var(--text-muted)] leading-relaxed">{p.description}</p>
               </div>
             ))}
           </div>
@@ -35,7 +35,7 @@ export default function Contact() {
           <h3 className="text-3xl sm:text-5xl font-bold mb-6">
             Let's create something that deserves the <span className="gradient-text">screen.</span>
           </h3>
-          <p className="text-gray-400 text-lg mb-12 max-w-xl mx-auto">
+          <p className="text-[var(--text-muted)] text-lg mb-12 max-w-xl mx-auto">
             Available for motion design, digital-signage projects, interface design and creative-technology collaborations.
           </p>
 
@@ -51,7 +51,7 @@ export default function Contact() {
           </a>
 
           {/* Contact details */}
-          <div className="flex flex-wrap items-center justify-center gap-8 mb-12 text-gray-500">
+          <div className="flex flex-wrap items-center justify-center gap-8 mb-12 text-[var(--text-muted)]">
             <span className="inline-flex items-center gap-2 text-sm">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" /><circle cx="12" cy="10" r="3" /></svg>
               {personalInfo.location}
@@ -70,7 +70,7 @@ export default function Contact() {
                 href={link.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-500 hover:text-green-400 transition-colors p-2 cursor-pointer"
+                className="text-[var(--text-muted)] hover:text-green-400 transition-colors p-2 cursor-pointer"
                 aria-label={link.label}
               >
                 {SocialIcon[link.icon]}

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { useTheme } from "@/context/ThemeContext";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
@@ -30,6 +31,8 @@ function ScrollReveal() {
 }
 
 export default function Home() {
+  const { theme } = useTheme();
+
   return (
     <>
       <ScrollReveal />
@@ -43,7 +46,7 @@ export default function Home() {
         <Contact />
       </main>
       {/* Footer */}
-      <footer className="py-8 text-center text-gray-600 text-sm border-t border-white/5">
+      <footer className="py-8 text-center text-[var(--text-muted)] text-sm border-t border-[var(--border-color)]">
         Flávio Gorodscy — Motion Designer & Creative Technologist — Toronto, Canada
       </footer>
     </>

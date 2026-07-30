@@ -33,7 +33,7 @@ export default function Hero() {
 
       <div className="relative z-10 text-center px-6 max-w-4xl">
         {/* Status badge */}
-        <div className="animate-fade-in-up mb-8 inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-2 text-sm text-gray-400">
+        <div className="animate-fade-in-up mb-8 inline-flex items-center gap-2 bg-[var(--card-bg)] border border-[var(--border-color)] rounded-full px-4 py-2 text-sm text-[var(--text-muted)]">
           <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
           Toronto, Canada
         </div>
@@ -52,7 +52,7 @@ export default function Hero() {
           {personalInfo.titles.map((title, i) => (
             <span
               key={title}
-              className="text-lg sm:text-xl text-gray-400"
+              className="text-lg sm:text-xl text-[var(--text-secondary)]"
               style={{ animation: "fadeInUp 0.6s ease-out both", animationDelay: `${0.4 + i * 0.15}s` }}
             >
               {title}
@@ -65,7 +65,7 @@ export default function Hero() {
 
         {/* Intro */}
         <p
-          className="animate-fade-in-up text-lg sm:text-xl text-gray-500 max-w-2xl mx-auto mb-12 leading-relaxed"
+          className="animate-fade-in-up text-lg sm:text-xl text-[var(--text-muted)] max-w-2xl mx-auto mb-12 leading-relaxed"
           style={{ animationDelay: "0.8s" }}
         >
           I design animated content, interfaces and digital-signage experiences—and understand the technology required to make them work reliably in the real world.
@@ -84,7 +84,7 @@ export default function Hero() {
           </button>
           <button
             onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
-            className="px-8 py-3.5 border border-white/20 text-white font-medium rounded-full hover:bg-white/5 transition-colors cursor-pointer w-full sm:w-auto"
+            className="px-8 py-3.5 border border-[var(--border-color)] text-[var(--text-primary)] font-medium rounded-full hover:bg-[var(--bg-tertiary)] transition-colors cursor-pointer w-full sm:w-auto"
           >
             Contact
           </button>
@@ -95,8 +95,8 @@ export default function Hero() {
           className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-fade-in"
           style={{ animationDelay: "1.5s" }}
         >
-          <div className="w-6 h-10 border-2 border-white/20 rounded-full flex justify-center">
-            <div className="w-1 h-3 bg-white/40 rounded-full mt-2 animate-bounce" />
+          <div className="w-6 h-10 border-2 border-[var(--text-muted)]/30 rounded-full flex justify-center">
+            <div className="w-1 h-3 bg-[var(--text-muted)]/40 rounded-full mt-2 animate-bounce" />
           </div>
         </div>
       </div>

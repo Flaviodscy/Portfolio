@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useTheme } from "@/context/ThemeContext";
 
 const sections = [
   { id: "hero", label: "Home" },
@@ -14,6 +15,7 @@ const sections = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { theme, toggle } = useTheme();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -26,13 +28,13 @@ export default function Navbar() {
     setMobileOpen(false);
   };
 
+  const bgClass = scrolled
+    ? "bg-[var(--bg-secondary)]/80 backdrop-blur-xl border-b border-[var(--border-color)]"
+    : "bg-transparent";
+
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-[#0a0a0f]/80 backdrop-blur-xl border-b border-white/5"
-          : "bg-transparent"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${bgClass}`}
     >
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo */}
@@ -49,16 +51,28 @@ export default function Navbar() {
             <button
               key={s.id}
               onClick={() => scrollTo(s.id)}
-              className="text-sm text-gray-400 hover:text-white transition-colors cursor-pointer"
+              className="text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors cursor-pointer"
             >
               {s.label}
             </button>
           ))}
+
+          {/* Theme toggle */}
+          <button
+            onClick={toggle}
+            className="ml-4 flex items-center gap-2 text-sm"
+            aria-label={`Switch to ${theme === "light" ? "dark" : "light"} mode`}
+          >
+            <span className="text-lg">{theme === "light" ? "☀️" : "🌙"}</span>
+            <div className={`w-10 h-6 rounded-full bg-[var(--bg-tertiary)] border border-[var(--border-color)] relative cursor-pointer transition-colors`}>
+              <div className="absolute top-0.5 left-0.5 w-5 h-5 rounded-full bg-green-400 transition-transform" style={{ transform: theme === "dark" ? "translateX(18px)" : "translateX(0)" }} />
+            </div>
+          </button>
         </div>
 
         {/* Mobile toggle */}
         <button
-          className="md:hidden text-gray-300 cursor-pointer"
+          className="md:hidden text-[var(--text-secondary)] cursor-pointer"
           onClick={() => setMobileOpen(!mobileOpen)}
         >
           <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth={2}>
@@ -75,17 +89,26 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="md:hidden bg-[#0a0a0f]/95 backdrop-blur-xl border-b border-white/5">
+        <div className="md:hidden bg-[var(--bg-secondary)]/95 backdrop-blur-xl border-b border-[var(--border-color)]">
           <div className="px-6 py-4 flex flex-col gap-4">
             {sections.map((s) => (
               <button
                 key={s.id}
                 onClick={() => scrollTo(s.id)}
-                className="text-left text-gray-300 hover:text-white transition-colors cursor-pointer py-2"
+                className="text-left text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors cursor-pointer py-2"
               >
                 {s.label}
               </button>
             ))}
+            <div className="flex items-center gap-3 pt-2 border-t border-[var(--border-color)]">
+              <span className="text-sm text-[var(--text-muted)]">{theme === "light" ? "Light" : "Dark"}</span>
+              <button
+                onClick={toggle}
+                className={`w-10 h-6 rounded-full bg-[var(--bg-tertiary)] border border-[var(--border-color)] relative cursor-pointer`}
+              >
+                <div className="absolute top-0.5 left-0.5 w-5 h-5 rounded-full bg-green-400 transition-transform" style={{ transform: theme === "dark" ? "translateX(18px)" : "translateX(0)" }} />
+              </button>
+            </div>
           </div>
         </div>
       )}

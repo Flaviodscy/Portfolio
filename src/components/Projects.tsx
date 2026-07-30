@@ -61,7 +61,7 @@ export default function Projects() {
           </h3>
 
           {/* Filter tabs */}
-          <div className="inline-flex gap-1 bg-white/5 rounded-full p-1">
+          <div className="inline-flex gap-1 bg-[var(--bg-tertiary)] rounded-full p-1">
             {tabs.map((tab) => (
               <button
                 key={tab.id}
@@ -69,7 +69,7 @@ export default function Projects() {
                 className={`px-5 py-2 rounded-full text-sm font-medium transition-all ${
                   active === tab.id
                     ? "bg-gradient-to-r from-green-500 to-emerald-500 text-white"
-                    : "text-gray-400 hover:text-white"
+                    : "text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
                 }`}
               >
                 {tab.label}
@@ -87,7 +87,7 @@ export default function Projects() {
               onMouseEnter={() => setHoveredId(project.id)}
               onMouseLeave={() => setHoveredId(null)}
             >
-              <div className="group relative bg-white/[0.03] border border-white/[0.06] rounded-2xl overflow-hidden card-hover">
+              <div className="group relative bg-[var(--card-bg)] border border-[var(--card-border)] rounded-2xl overflow-hidden card-hover">
                 {/* Image area */}
                 <div className="relative h-48 overflow-hidden">
                   <ProjectImage project={project} />
@@ -117,11 +117,11 @@ export default function Projects() {
                       {project.category === "motion" ? "Design" : "Dev"}
                     </span>
                   </div>
-                  <h4 className="text-lg font-bold leading-snug group-hover:text-green-300 transition-colors">{project.title}</h4>
-                  <p className="text-sm text-gray-500 leading-relaxed">{project.description}</p>
+                  <h4 className="text-lg font-bold leading-snug group-hover:text-green-600 transition-colors">{project.title}</h4>
+                  <p className="text-sm text-[var(--text-muted)] leading-relaxed">{project.description}</p>
                   <div className="flex flex-wrap gap-2 pt-1">
                     {project.tags.map((tag) => (
-                      <span key={tag} className="text-xs bg-white/5 px-2 py-1 rounded text-gray-400">
+                      <span key={tag} className="text-xs bg-[var(--bg-tertiary)] px-2 py-1 rounded text-[var(--text-secondary)]">
                         {tag}
                       </span>
                     ))}

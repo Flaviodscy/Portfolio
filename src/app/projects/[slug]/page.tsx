@@ -17,7 +17,7 @@ const PROJECT_COLORS: Record<string, [string, string]> = {
 function ProjectBanner({ title, slug }: { title: string; slug: string }) {
   const colors = PROJECT_COLORS[slug] || ["#4ade80", "#22c55e"];
   return (
-    <div className="relative w-full h-64 sm:h-80 rounded-2xl overflow-hidden border border-white/[0.06]">
+    <div className="relative w-full h-64 sm:h-80 rounded-2xl overflow-hidden border border-[var(--card-border)]">
       {/* Real hero image */}
       <img
         src={`/images/projects/${slug}/hero.jpg`}
@@ -57,9 +57,9 @@ export default function CaseStudyPage() {
     return (
       <section className="min-h-screen flex items-center justify-center px-6">
         <div className="text-center space-y-6">
-          <h2 className="text-3xl font-bold">Project not found</h2>
+          <h2 className="text-3xl font-bold text-[var(--text-primary)]">Project not found</h2>
           <Link href="/#projects" onClick={() => router.push("/")}>
-            <button className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/5 border border-white/10 rounded-full text-sm hover:bg-white/10 cursor-pointer">
+            <button className="inline-flex items-center gap-2 px-5 py-2.5 bg-[var(--card-bg)] border border-[var(--card-border)] rounded-full text-sm hover:bg-[var(--bg-tertiary)] cursor-pointer">
               {backArrow} Back to Projects
             </button>
           </Link>
@@ -76,16 +76,16 @@ export default function CaseStudyPage() {
     return (
       <section className="min-h-screen">
         {/* Header */}
-        <header className="sticky top-0 z-50 bg-[#0a0f0d]/80 backdrop-blur-xl border-b border-white/5">
+        <header className="sticky top-0 z-50 bg-[var(--bg-secondary)]/80 backdrop-blur-xl border-b border-[var(--border-color)]">
           <div className="max-w-5xl mx-auto px-6 py-4 flex items-center gap-4">
             <Link href="/#projects" onClick={() => router.push("/")}>
-              <button className="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors cursor-pointer group">
+              <button className="inline-flex items-center gap-2 text-sm text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors cursor-pointer group">
                 <span className="group-hover:-translate-x-0.5 transition-transform">{backArrow}</span>
                 Back to Projects
               </button>
             </Link>
-            <div className="h-4 w-px bg-white/10" />
-            <span className="text-sm text-gray-500 truncate max-w-[300px]">Brand Identities</span>
+            <div className="h-4 w-px bg-[var(--border-color)]" />
+            <span className="text-sm text-[var(--text-muted)] truncate max-w-[300px]">Brand Identities</span>
           </div>
         </header>
 
@@ -94,8 +94,8 @@ export default function CaseStudyPage() {
           <span className="inline-block text-xs font-medium px-3 py-1 rounded-full bg-green-500/10 text-green-400 mb-6">
             Branding & Visual Identity
           </span>
-          <h1 className="text-3xl sm:text-5xl font-bold leading-tight mb-6">{cs.title}</h1>
-          <p className="text-gray-400 text-lg leading-relaxed max-w-3xl">
+          <h1 className="text-3xl sm:text-5xl font-bold leading-tight text-[var(--text-primary)] mb-6">{cs.title}</h1>
+          <p className="text-[var(--text-secondary)] text-lg leading-relaxed max-w-3xl">
             {cs.summary}
           </p>
         </div>
@@ -111,7 +111,7 @@ export default function CaseStudyPage() {
           {cs.category && (
             <div className="grid sm:grid-cols-[200px_1fr] gap-4">
               <h3 className="text-sm font-semibold text-green-400 uppercase tracking-widest text-left">Category</h3>
-              <p className="text-gray-400">{cs.category}</p>
+              <p className="text-[var(--text-secondary)]">{cs.category}</p>
             </div>
           )}
 
@@ -127,7 +127,6 @@ export default function CaseStudyPage() {
               { file: "Prancheta 7@3x-100.jpg", alt: "SanGo brand mockup 6" },
               { file: "BAG.png white.png", alt: "SanGo bag branding" },
               { file: "High Desert Clay - 16oz Stackable Pint EMBfinal2.png", alt: "SanGo product application" },
-              { file: "Mesa de trabajo 1@3x-100.jpg", alt: "SanGo work surface mockup" },
             ]}
           />
 
@@ -171,14 +170,14 @@ export default function CaseStudyPage() {
             title="Leticia Barreto — Veterinary Identity System"
             images={[
               { file: "2.png", alt: "Leticia Barreto presentation 1" },
-              { file: "5859587.png", alt: "Leticia Barreto mockup" },
-              { file: "5896448.png", alt: "Leticia Barreto mockup 2" },
-              { file: "Free Sticker Mockup PSD.png", alt: "Leticia Barreto sticker mockup" },
-              { file: "Prancheta 3.png", alt: "Leticia Barreto letterhead design" },
-              { file: "Cartão-01.png", alt: "Leticia Barreto business card 1" },
-              { file: "Cartão-02.png", alt: "Leticia Barreto business card 2" },
-              { file: "Carteirinha_Brochure 1.png", alt: "Leticia Barreto pet carrier card" },
+              { file: "Branco sem fundo.png", alt: "Leticia Barreto white version" },
+              { file: "Verde sem fundo.png", alt: "Leticia Barreto green version" },
+              { file: "Fundo branco .png", alt: "Leticia Barreto white background" },
+              { file: "Prancheta 3.png", alt: "Leticia Barreto presentation sheet" },
+              { file: "Carteirinha_Brochure 1.png", alt: "Leticia Barreto pet carrier card 1" },
               { file: "Carteirinha_Brochure 2.png", alt: "Leticia Barreto pet carrier card 2" },
+              { file: "Fundo verde.png", alt: "Leticia Barreto green background" },
+              { file: "mockup.svg", alt: "Leticia Barreto mockup frame" },
             ]}
           />
 
@@ -217,20 +216,20 @@ export default function CaseStudyPage() {
           />
 
           {/* Navigation */}
-          <div className="flex items-center justify-between pt-12 border-t border-white/5">
+          <div className="flex items-center justify-between pt-12 border-t border-[var(--border-color)]">
             {(() => {
               const prevIndex = (projects.findIndex((p) => p.slug === slug) - 1 + projects.length) % projects.length;
               const nextIndex = (projects.findIndex((p) => p.slug === slug) + 1) % projects.length;
               return (
                 <>
                   <Link href={`/projects/${projects[prevIndex].slug}`}>
-                    <button className="flex items-center gap-2 text-sm text-gray-500 hover:text-green-400 transition-colors cursor-pointer group">
+                    <button className="flex items-center gap-2 text-sm text-[var(--text-muted)] hover:text-green-400 transition-colors cursor-pointer group">
                       <span className="group-hover:-translate-x-1 transition-transform">{backArrow}</span>
                       {projects[prevIndex].title}
                     </button>
                   </Link>
                   <Link href={`/projects/${projects[nextIndex].slug}`}>
-                    <button className="flex items-center gap-2 text-sm text-gray-500 hover:text-green-400 transition-colors cursor-pointer group">
+                    <button className="flex items-center gap-2 text-sm text-[var(--text-muted)] hover:text-green-400 transition-colors cursor-pointer group">
                       {projects[nextIndex].title}
                       <span className="group-hover:translate-x-1 transition-transform">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
@@ -247,11 +246,11 @@ export default function CaseStudyPage() {
         </div>
 
         {/* Footer CTA */}
-        <footer className="py-20 text-center border-t border-white/5">
-          <h3 className="text-2xl sm:text-4xl font-bold mb-4">
+        <footer className="py-20 text-center border-t border-[var(--border-color)]">
+          <h3 className="text-2xl sm:text-4xl font-bold mb-4 text-[var(--text-primary)]">
             Interested in <span className="gradient-text">working together?</span>
           </h3>
-          <p className="text-gray-500 mb-8 max-w-lg mx-auto">
+          <p className="text-[var(--text-muted)] mb-8 max-w-lg mx-auto">
             Let's create something that deserves the screen.
           </p>
           <a
@@ -269,16 +268,16 @@ export default function CaseStudyPage() {
   return (
     <section className="min-h-screen">
       {/* Header */}
-      <header className="sticky top-0 z-50 bg-[#0a0f0d]/80 backdrop-blur-xl border-b border-white/5">
+      <header className="sticky top-0 z-50 bg-[var(--bg-secondary)]/80 backdrop-blur-xl border-b border-[var(--border-color)]">
         <div className="max-w-5xl mx-auto px-6 py-4 flex items-center gap-4">
           <Link href="/#projects" onClick={() => router.push("/")}>
-            <button className="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors cursor-pointer group">
+            <button className="inline-flex items-center gap-2 text-sm text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors cursor-pointer group">
               <span className="group-hover:-translate-x-0.5 transition-transform">{backArrow}</span>
               Back to Projects
             </button>
           </Link>
-          <div className="h-4 w-px bg-white/10" />
-          <span className="text-sm text-gray-500 truncate max-w-[300px]">{cs.title}</span>
+          <div className="h-4 w-px bg-[var(--border-color)]" />
+          <span className="text-sm text-[var(--text-muted)] truncate max-w-[300px]">{cs.title}</span>
         </div>
       </header>
 
@@ -287,8 +286,8 @@ export default function CaseStudyPage() {
         <span className={`inline-block text-xs font-medium px-3 py-1 rounded-full mb-6 ${isMotion ? "bg-green-500/10 text-green-400" : "bg-emerald-500/10 text-emerald-400"}`}>
           {project.category === "motion" ? "Motion & Design" : "Development & Ops"}
         </span>
-        <h1 className="text-3xl sm:text-5xl font-bold leading-tight mb-6">{cs.title}</h1>
-        <p className="text-gray-400 text-lg leading-relaxed max-w-3xl">{cs.summary}</p>
+        <h1 className="text-3xl sm:text-5xl font-bold leading-tight text-[var(--text-primary)] mb-6">{cs.title}</h1>
+        <p className="text-[var(--text-secondary)] text-lg leading-relaxed max-w-3xl">{cs.summary}</p>
       </div>
 
       {/* Image placeholder area */}
@@ -301,19 +300,19 @@ export default function CaseStudyPage() {
         {cs.role && (
           <div className="grid sm:grid-cols-[200px_1fr] gap-4">
             <h3 className="text-sm font-semibold text-green-400 uppercase tracking-widest text-left">Role</h3>
-            <p className="text-gray-400 leading-relaxed">{cs.role}</p>
+            <p className="text-[var(--text-secondary)] leading-relaxed">{cs.role}</p>
           </div>
         )}
         {cs.category && (
           <div className="grid sm:grid-cols-[200px_1fr] gap-4">
             <h3 className="text-sm font-semibold text-green-400 uppercase tracking-widest text-left">Category</h3>
-            <p className="text-gray-400">{cs.category}</p>
+            <p className="text-[var(--text-secondary)]">{cs.category}</p>
           </div>
         )}
         {cs.dates && (
           <div className="grid sm:grid-cols-[200px_1fr] gap-4">
             <h3 className="text-sm font-semibold text-green-400 uppercase tracking-widest text-left">Timeline</h3>
-            <p className="text-gray-400">{cs.dates}</p>
+            <p className="text-[var(--text-secondary)]">{cs.dates}</p>
           </div>
         )}
         {cs.process && (
@@ -321,7 +320,7 @@ export default function CaseStudyPage() {
             <h3 className="text-sm font-semibold text-green-400 uppercase tracking-widest text-left">Process</h3>
             <ol className="space-y-2">
               {cs.process.map((step, i) => (
-                <li key={i} className="flex items-start gap-3 text-gray-400">
+                <li key={i} className="flex items-start gap-3 text-[var(--text-secondary)]">
                   <span className="text-green-400 font-mono text-sm pt-0.5">{String(i + 1).padStart(2, "0")}</span>
                   {step}
                 </li>
@@ -334,7 +333,7 @@ export default function CaseStudyPage() {
             <h3 className="text-sm font-semibold text-green-400 uppercase tracking-widest text-left">What I worked on</h3>
             <ul className="space-y-2">
               {cs.work.map((item, i) => (
-                <li key={i} className="flex items-start gap-3 text-gray-400">
+                <li key={i} className="flex items-start gap-3 text-[var(--text-secondary)]">
                   <span className="mt-1.5 w-1.5 h-1.5 bg-green-400 rounded-full shrink-0" />
                   {item}
                 </li>
@@ -347,7 +346,7 @@ export default function CaseStudyPage() {
             <h3 className="text-sm font-semibold text-green-400 uppercase tracking-widest text-left">Systems & Technologies</h3>
             <ul className="space-y-2">
               {cs.systems.map((item, i) => (
-                <li key={i} className="flex items-start gap-3 text-gray-400">
+                <li key={i} className="flex items-start gap-3 text-[var(--text-secondary)]">
                   <span className="mt-1.5 w-1.5 h-1.5 bg-emerald-400 rounded-full shrink-0" />
                   {item}
                 </li>
@@ -360,11 +359,11 @@ export default function CaseStudyPage() {
             <h3 className="text-sm font-semibold text-green-400 uppercase tracking-widest text-left">Included Work</h3>
             <ul className="space-y-6">
               {cs.works.map((item: { name: string; description: string }, i: number) => (
-                <li key={i} className="text-gray-400">
+                <li key={i} className="text-[var(--text-secondary)]">
                   <span className="flex items-start gap-3">
                     <span className="mt-1.5 w-1.5 h-1.5 bg-green-400 rounded-full shrink-0" />
                     <div>
-                      <span className="font-medium text-gray-300">{item.name}</span>
+                      <span className="font-medium text-[var(--text-primary)]">{item.name}</span>
                       <p className="mt-1 leading-relaxed">{item.description}</p>
                     </div>
                   </span>
@@ -378,7 +377,7 @@ export default function CaseStudyPage() {
             <h3 className="text-sm font-semibold text-green-400 uppercase tracking-widest text-left">What it taught me</h3>
             <ul className="space-y-2">
               {cs.lessons.map((item, i) => (
-                <li key={i} className="flex items-start gap-3 text-gray-400">
+                <li key={i} className="flex items-start gap-3 text-[var(--text-secondary)]">
                   <span className="mt-1.5 w-1.5 h-1.5 bg-green-400 rounded-full shrink-0" />
                   {item}
                 </li>
@@ -391,7 +390,7 @@ export default function CaseStudyPage() {
             <h3 className="text-sm font-semibold text-green-400 uppercase tracking-widest text-left">Formats</h3>
             <ul className="space-y-2">
               {cs.formats.map((item, i) => (
-                <li key={i} className="flex items-start gap-3 text-gray-400">
+                <li key={i} className="flex items-start gap-3 text-[var(--text-secondary)]">
                   <span className="mt-1.5 w-1.5 h-1.5 bg-emerald-400 rounded-full shrink-0" />
                   {item}
                 </li>
@@ -402,46 +401,46 @@ export default function CaseStudyPage() {
         {cs.tech && (
           <div className="grid sm:grid-cols-[200px_1fr] gap-4">
             <h3 className="text-sm font-semibold text-green-400 uppercase tracking-widest text-left">Technology</h3>
-            <p className="text-gray-400 leading-relaxed">{cs.tech}</p>
+            <p className="text-[var(--text-secondary)] leading-relaxed">{cs.tech}</p>
           </div>
         )}
         {cs.outcome && (
           <div className="grid sm:grid-cols-[200px_1fr] gap-4">
             <h3 className="text-sm font-semibold text-green-400 uppercase tracking-widest text-left">Outcome</h3>
-            <p className="text-gray-400 leading-relaxed">{cs.outcome}</p>
+            <p className="text-[var(--text-secondary)] leading-relaxed">{cs.outcome}</p>
           </div>
         )}
         {cs.quote1 && (
           <div className="border-l-2 border-green-500/30 pl-6 py-2">
-            <p className="text-gray-400 text-lg leading-relaxed italic">{cs.quote1}</p>
+            <p className="text-[var(--text-secondary)] text-lg leading-relaxed italic">{cs.quote1}</p>
           </div>
         )}
         {cs.quote2 && (
           <div className="border-l-2 border-emerald-500/30 pl-6 py-2">
-            <p className="text-gray-400 text-lg leading-relaxed italic">{cs.quote2}</p>
+            <p className="text-[var(--text-secondary)] text-lg leading-relaxed italic">{cs.quote2}</p>
           </div>
         )}
         {cs.quote && !cs.quote1 && (
           <div className="border-l-2 border-green-500/30 pl-6 py-2">
-            <p className="text-gray-400 text-lg leading-relaxed italic">{cs.quote}</p>
+            <p className="text-[var(--text-secondary)] text-lg leading-relaxed italic">{cs.quote}</p>
           </div>
         )}
 
         {/* Navigation */}
-        <div className="flex items-center justify-between pt-12 border-t border-white/5">
+        <div className="flex items-center justify-between pt-12 border-t border-[var(--border-color)]">
           {(() => {
             const prevIndex = (projects.findIndex((p) => p.slug === slug) - 1 + projects.length) % projects.length;
             const nextIndex = (projects.findIndex((p) => p.slug === slug) + 1) % projects.length;
             return (
               <>
                 <Link href={`/projects/${projects[prevIndex].slug}`}>
-                  <button className="flex items-center gap-2 text-sm text-gray-500 hover:text-green-400 transition-colors cursor-pointer group">
+                  <button className="flex items-center gap-2 text-sm text-[var(--text-muted)] hover:text-green-400 transition-colors cursor-pointer group">
                     <span className="group-hover:-translate-x-1 transition-transform">{backArrow}</span>
                     {projects[prevIndex].title}
                   </button>
                 </Link>
                 <Link href={`/projects/${projects[nextIndex].slug}`}>
-                  <button className="flex items-center gap-2 text-sm text-gray-500 hover:text-green-400 transition-colors cursor-pointer group">
+                  <button className="flex items-center gap-2 text-sm text-[var(--text-muted)] hover:text-green-400 transition-colors cursor-pointer group">
                     {projects[nextIndex].title}
                     <span className="group-hover:translate-x-1 transition-transform">
                       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
@@ -458,11 +457,11 @@ export default function CaseStudyPage() {
       </div>
 
       {/* Footer CTA */}
-      <footer className="py-20 text-center border-t border-white/5">
-        <h3 className="text-2xl sm:text-4xl font-bold mb-4">
+      <footer className="py-20 text-center border-t border-[var(--border-color)]">
+        <h3 className="text-2xl sm:text-4xl font-bold mb-4 text-[var(--text-primary)]">
           Interested in <span className="gradient-text">working together?</span>
         </h3>
-        <p className="text-gray-500 mb-8 max-w-lg mx-auto">
+        <p className="text-[var(--text-muted)] mb-8 max-w-lg mx-auto">
           Let's create something that deserves the screen.
         </p>
         <a

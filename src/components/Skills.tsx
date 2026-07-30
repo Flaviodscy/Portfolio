@@ -4,10 +4,10 @@ function SkillBar({ name, level }: { name: string; level: number }) {
   return (
     <div className="group">
       <div className="flex justify-between mb-2">
-        <span className="text-sm font-medium text-gray-300 group-hover:text-white transition-colors">{name}</span>
-        <span className="text-sm text-gray-500">{level}%</span>
+        <span className="text-sm font-medium text-[var(--text-secondary)] group-hover:text-[var(--text-primary)] transition-colors">{name}</span>
+        <span className="text-sm text-[var(--text-muted)]">{level}%</span>
       </div>
-      <div className="h-2 bg-white/5 rounded-full overflow-hidden">
+      <div className="h-2 bg-[var(--bg-tertiary)] rounded-full overflow-hidden">
         <div
           className="h-full bg-gradient-to-r from-green-400 to-emerald-500 rounded-full transition-all duration-1000"
           style={{ width: `${level}%` }}
@@ -19,7 +19,7 @@ function SkillBar({ name, level }: { name: string; level: number }) {
 
 function ToolChip({ name }: { name: string }) {
   return (
-    <span className="inline-flex items-center px-3.5 py-1.5 bg-white/5 border border-white/[0.06] rounded-full text-sm text-gray-400 hover:text-white hover:border-green-500/30 transition-all cursor-default">
+    <span className="inline-flex items-center px-3.5 py-1.5 bg-[var(--card-bg)] border border-[var(--card-border)] rounded-full text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-green-500/30 transition-all cursor-default">
       {name}
     </span>
   );
@@ -27,7 +27,7 @@ function ToolChip({ name }: { name: string }) {
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-32 px-6 bg-white/[0.02]">
+    <section id="skills" className="py-32 px-6 bg-[var(--bg-tertiary)]">
       <div className="max-w-5xl mx-auto space-y-24">
         {/* Skill bars */}
         <div>
@@ -47,7 +47,7 @@ export default function Skills() {
                     <polygon points="5 3 19 12 5 21 5 3" />
                   </svg>
                 </div>
-                <h4 className="text-xl font-bold">Motion & Visual Design</h4>
+                <h4 className="text-xl font-bold text-[var(--text-primary)]">Motion & Visual Design</h4>
               </div>
               {designSkills.map((skill) => (
                 <SkillBar key={skill.name} {...skill} />
@@ -63,7 +63,7 @@ export default function Skills() {
                     <polyline points="8 6 2 12 8 18" />
                   </svg>
                 </div>
-                <h4 className="text-xl font-bold">Development & Technical Ops</h4>
+                <h4 className="text-xl font-bold text-[var(--text-primary)]">Development & Technical Ops</h4>
               </div>
               {devSkills.map((skill) => (
                 <SkillBar key={skill.name} {...skill} />
