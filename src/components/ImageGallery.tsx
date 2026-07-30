@@ -7,10 +7,39 @@ interface ImageItem {
   alt: string;
 }
 
+// Brand accent colors for placeholder cards
+const BRAND_COLORS: Record<string, string[]> = {
+  SanGo: ["#4ade80", "#22c55e", "#16a34a"],
+  LOWKEY: ["#f97316", "#ea580c", "#dc2626"],
+  "Bonne Pooch": ["#a78bfa", "#8b5cf6", "#7c3aed"],
+  "Laura Leone": ["#facc15", "#eab308", "#ca8a04"],
+  "Leticia Barreto": ["#2dd4bf", "#14b8a6", "#0d9488"],
+  "Fernanda Vasques": ["#fb7185", "#f43f5e", "#e11d48"],
+  MehConnect: ["#38bdf8", "#0ea5e9", "#0284c7"],
+  "Open Studios": ["#c084fc", "#a855f7", "#9333ea"],
+};
+
+function PlaceholderCard({ brand, index }: { brand: string; index: number }) {
+  const colors = BRAND_COLORS[brand] || ["#6b7280", "#4b5563", "#374151"];
+  return (
+    <div className="relative w-full h-full flex items-center justify-center bg-gradient-to-br" style={{ background: `linear-gradient(135deg, ${colors[0]}22, ${colors[1]}11)` }}>
+      <div className="text-center">
+        <div className={`w-12 h-12 mx-auto mb-2 rounded-xl bg-gradient-to-br flex items-center justify-center text-white font-bold text-sm`} style={{ background: `linear-gradient(135deg, ${colors[0]}, ${colors[1]})` }}>
+          {brand.slice(0, 2).toUpperCase()}
+        </div>
+        <p className="text-[10px] text-gray-600 leading-tight px-1 truncate">{brand}</p>
+      </div>
+    </div>
+  );
+}
+
 export default function ImageGallery({ title, images }: { title: string; images: ImageItem[] }) {
   const [modalIndex, setModalIndex] = useState<number | null>(null);
 
   if (images.length === 0) return null;
+
+  // Extract brand name from first image filename
+  const brand = images[0].file.split(" ")[0];
 
   return (
     <div className="space-y-3">
@@ -22,22 +51,7 @@ export default function ImageGallery({ title, images }: { title: string; images:
             onClick={() => setModalIndex(i)}
             className="relative aspect-video rounded-xl overflow-hidden bg-white/[0.03] border border-white/[0.06] group cursor-pointer"
           >
-            <img
-              src={`/images/projects/branding-visual-experiments/${img.file}`}
-              alt={img.alt}
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-              onError={(e) => {
-                const el = e.target as HTMLImageElement;
-                el.parentElement!.innerHTML = `
-                  <div class="absolute inset-0 flex items-center justify-center text-gray-700">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}>
-                      <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
-                      <circle cx="8.5" cy="8.5" r="1.5" />
-                      <polyline points="21 15 16 10 5 21" />
-                    </svg>
-                  </div>`;
-              }}
-            />
+            <PlaceholderCard brand={brand} index={i} />
           </button>
         ))}
       </div>
@@ -76,12 +90,7 @@ export default function ImageGallery({ title, images }: { title: string; images:
               </svg>
             </button>
           )}
-          <img
-            src={`/images/projects/branding-visual-experiments/${images[modalIndex].file}`}
-            alt={images[modalIndex].alt}
-            className="max-w-[90vw] max-h-[80vh] object-contain rounded-lg"
-            onClick={(e) => e.stopPropagation()}
-          />
+          <PlaceholderCard brand={brand} index={modalIndex} />
         </div>
       )}
     </div>
