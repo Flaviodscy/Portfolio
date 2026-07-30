@@ -18,27 +18,23 @@ function ProjectBanner({ title, slug }: { title: string; slug: string }) {
   const colors = PROJECT_COLORS[slug] || ["#4ade80", "#22c55e"];
   return (
     <div className="relative w-full h-64 sm:h-80 rounded-2xl overflow-hidden border border-white/[0.06]">
-      <div className="absolute inset-0" style={{ background: `linear-gradient(135deg, ${colors[0]}20, ${colors[1]}08)` }} />
-      {/* Grid pattern */}
-      <div className="absolute inset-0 opacity-10"
-        style={{ backgroundImage: `linear-gradient(${colors[0]}33 1px, transparent 1px), linear-gradient(90deg, ${colors[0]}33 1px, transparent 1px)`, backgroundSize: '32px 32px' }} />
-      {/* Decorative circles */}
-      <div className="absolute top-8 right-16 w-32 h-32 rounded-full opacity-15" style={{ background: `radial-gradient(circle, ${colors[0]}, transparent)` }} />
-      <div className="absolute bottom-10 left-10 w-24 h-24 rounded-full opacity-10" style={{ background: `radial-gradient(circle, ${colors[1]}, transparent)` }} />
-      {/* Center icon */}
-      <div className="absolute inset-0 flex items-center justify-center">
-        <div className="w-20 h-20 rounded-2xl border-2 border-white/10 flex items-center justify-center" style={{ background: `${colors[0]}12` }}>
-          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke={colors[0]} strokeWidth={1.5} className="opacity-50">
-            <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
-            <circle cx="8.5" cy="8.5" r="1.5" />
-            <polyline points="21 15 16 10 5 21" />
-          </svg>
-        </div>
-      </div>
-      {/* Bottom label */}
-      <div className="absolute bottom-4 left-4 px-3 py-1.5 rounded-md bg-black/40 backdrop-blur-sm">
-        <span className="text-[11px] text-white/60 font-mono">drop mockup here — public/images/projects/{slug}/hero.jpg</span>
-      </div>
+      {/* Real hero image */}
+      <img
+        src={`/images/projects/${slug}/hero.jpg`}
+        alt={`${title} — Hero`}
+        className="w-full h-full object-cover"
+        onError={(e) => {
+          const el = e.target as HTMLImageElement;
+          el.style.display = "none";
+          // Fallback to gradient if no hero image exists
+          const fallback = document.createElement("div");
+          fallback.className = "absolute inset-0 flex items-center justify-center rounded-2xl";
+          fallback.style.background = `linear-gradient(135deg, ${colors[0]}20, ${colors[1]}08)`;
+          el.parentElement!.appendChild(fallback);
+        }}
+      />
+      {/* Overlay gradient on image */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent pointer-events-none" />
     </div>
   );
 }

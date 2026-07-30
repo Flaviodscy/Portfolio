@@ -7,7 +7,7 @@ interface ImageItem {
   alt: string;
 }
 
-// Brand accent colors for placeholder cards
+// Brand accent colors for visual cards
 const BRAND_COLORS: Record<string, [string, string]> = {
   SanGo: ["#4ade80", "#22c55e"],
   LOWKEY: ["#f97316", "#ea580c"],
@@ -19,22 +19,18 @@ const BRAND_COLORS: Record<string, [string, string]> = {
   "Open Studios": ["#c084fc", "#a855f7"],
 };
 
-function PlaceholderCard({ brand, index }: { brand: string; index: number }) {
+function ImageCard({ brand, index }: { brand: string; index: number }) {
   const colors = BRAND_COLORS[brand] || ["#6b7280", "#4b5563"];
+  // Fallback gradient background that matches the project card design
   return (
-    <div className="relative w-full h-full flex items-center justify-center overflow-hidden rounded-xl" style={{ background: `linear-gradient(135deg, ${colors[0]}20, ${colors[1]}10)` }}>
-      {/* Decorative elements */}
-      <div className="absolute top-2 right-4 w-12 h-12 rounded-full opacity-15" style={{ background: `radial-gradient(circle, ${colors[0]}, transparent)` }} />
+    <div className="w-full h-full overflow-hidden rounded-xl" style={{ background: `linear-gradient(135deg, ${colors[0]}20, ${colors[1]}10)` }}>
+      {/* Grid pattern */}
+      <div className="absolute inset-0 opacity-10"
+        style={{ backgroundImage: `linear-gradient(${colors[0]}33 1px, transparent 1px), linear-gradient(90deg, ${colors[0]}33 1px, transparent 1px)`, backgroundSize: '24px 24px' }} />
+      {/* Decorative circles */}
+      <div className="absolute top-2 right-4 w-10 h-10 rounded-full opacity-15" style={{ background: `radial-gradient(circle, ${colors[0]}, transparent)` }} />
       <div className="absolute bottom-3 left-3 px-2 py-1 rounded bg-black/40 backdrop-blur-sm">
         <span className="text-[9px] text-white/50 font-mono uppercase">mockup {index + 1}</span>
-      </div>
-      {/* Center icon */}
-      <div className={`w-14 h-14 rounded-xl flex items-center justify-center border border-white/[0.08]`} style={{ background: `${colors[0]}12` }}>
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={colors[0]} strokeWidth={1.5} className="opacity-50">
-          <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
-          <circle cx="8.5" cy="8.5" r="1.5" />
-          <polyline points="21 15 16 10 5 21" />
-        </svg>
       </div>
     </div>
   );
@@ -52,7 +48,7 @@ export default function ImageGallery({ title, images }: { title: string; images:
   return (
     <div className="space-y-3">
       <h4 className="text-lg font-bold text-white flex items-center gap-2">
-        <span className="w-1.5 h-1.5 rounded-full" style={{ background: `linear-gradient(135deg, ${colors[0]}, ${colors[1]})` }} />
+        <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: `linear-gradient(135deg, ${colors[0]}, ${colors[1]})` }} />
         {title}
       </h4>
       <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
@@ -62,7 +58,24 @@ export default function ImageGallery({ title, images }: { title: string; images:
             onClick={() => setModalIndex(i)}
             className="relative aspect-video rounded-xl overflow-hidden bg-white/[0.03] border border-white/[0.06] group cursor-pointer"
           >
-            <PlaceholderCard brand={brand} index={i} />
+            {/* Real image */}
+            <img
+              src={`/images/projects/branding-visual-experiments/${brand}/${img.file}`}
+              alt={img.alt}
+              className="w-full h-full object-cover opacity-100"
+              onError={(e) => {
+                // If real image fails, show branded placeholder card
+                const el = e.target as HTMLImageElement;
+                el.style.display = "none";
+                if (!el.parentElement!.querySelector(".fallback-card")) {
+                  const fb = document.createElement("div");
+                  fb.className = "fallback-card absolute inset-0 rounded-xl";
+                  fb.style.background = `linear-gradient(135deg, ${colors[0]}20, ${colors[1]}10)`;
+                  fb.innerHTML = `<div class="absolute top-2 right-4 w-10 h-10 rounded-full opacity-15" style="background:radial-gradient(circle,${colors[0]},transparent)"></div><div class="absolute bottom-3 left-3 px-2 py-1 rounded bg-black/40 backdrop-blur-sm"><span class="text-[9px] text-white/50 font-mono uppercase">drop ${img.file}</span></div>`;
+                  el.parentElement!.appendChild(fb);
+                }
+              }}
+            />
           </button>
         ))}
       </div>
@@ -101,14 +114,14 @@ export default function ImageGallery({ title, images }: { title: string; images:
               </svg>
             </button>
           )}
-          <PlaceholderCard brand={brand} index={modalIndex} />
+          <img
+            src={`/images/projects/branding-visual-experiments/${brand}/${images[modalIndex].file}`}
+            alt={images[modalIndex].alt}
+            className="max-w-[90vw] max-h-[80vh] object-contain rounded-lg"
+            onClick={(e) => e.stopPropagation()}
+          />
         </div>
       )}
-
-      {/* Replace instruction */}
-      <p className="text-xs text-gray-600 mt-2">
-        Drop mockup images into: <code className="bg-white/5 px-1 py-0.5 rounded">public/images/projects/branding-visual-experiments/{brand}/</code>
-      </p>
     </div>
   );
 }
