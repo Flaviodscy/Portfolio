@@ -5,18 +5,22 @@ export default function About() {
     <section id="about" className="py-32 px-6">
       <div className="max-w-5xl mx-auto">
         <div className="reveal grid md:grid-cols-2 gap-16 items-center">
-          {/* Photo placeholder */}
+          {/* Profile photo */}
           <div className="flex justify-center">
             <div className="relative w-72 h-72 sm:w-80 sm:h-80 rounded-2xl overflow-hidden card-hover border border-[var(--border-color)]">
-              <div
-                className="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-cyan-500/20"
+              <img
+                src="/images/profile.png"
+                alt="Flávio Gorodscy"
+                className="w-full h-full object-cover"
+                onError={(e) => {
+                  const el = e.target as HTMLImageElement;
+                  el.style.display = "none";
+                  const fb = document.createElement("div");
+                  fb.className = "absolute inset-0 bg-gradient-to-br from-purple-500/20 to-cyan-500/20 flex items-center justify-center";
+                  fb.innerHTML = `<svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" class="text-[var(--text-muted)]/30"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>`;
+                  el.parentElement!.appendChild(fb);
+                }}
               />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1} className="text-[var(--text-muted)]/30">
-                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                  <circle cx="12" cy="7" r="4" />
-                </svg>
-              </div>
             </div>
           </div>
 
