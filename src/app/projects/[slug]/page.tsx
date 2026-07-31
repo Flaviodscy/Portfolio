@@ -30,26 +30,11 @@ function ProjectBanner({ title, slug }: { title: string; slug: string }) {
 
   return (
     <div className="relative w-full h-64 sm:h-80 rounded-2xl overflow-hidden border border-[var(--card-border)]">
-      {/* Banner photo */}
+      {/* Banner photo only */}
       {bannerImage ? (
         <img src={bannerImage} alt={`${title} banner`} className="w-full h-full object-cover" />
       ) : (
         <div className="absolute inset-0 bg-gradient-to-br from-green-500/10 to-transparent" />
-      )}
-      {/* Heavy bottom gradient so text is always readable */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/50 to-black/75" />
-      {/* Text panel */}
-      {desc ? (
-        <div className="absolute inset-x-0 bottom-0 px-8 sm:px-12 pb-8 sm:pb-10 pt-16 sm:pt-20">
-          <div className="bg-white/[0.06] backdrop-blur-lg rounded-2xl p-5 sm:p-6 border border-white/10">
-            <h3 className="text-white text-xl sm:text-3xl font-bold leading-tight mb-2">{title.split(" — ")[0]}</h3>
-            <p className="text-white/70 text-sm sm:text-base max-w-xl leading-relaxed">{desc}</p>
-          </div>
-        </div>
-      ) : (
-        <div className="absolute bottom-8 left-8 sm:left-12">
-          <span className="text-white/90 text-2xl sm:text-3xl font-bold leading-tight">{title.split(" — ")[0]}</span>
-        </div>
       )}
     </div>
   );
