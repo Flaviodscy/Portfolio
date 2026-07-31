@@ -21,14 +21,14 @@ const PROJECT_COLORS: Record<number, [string, string]> = {
   6: ["#38bdf8", "#0ea5e9"],       // Experimental — sky blue
 };
 
-// Cover images for each project card — real mockups where available, AI-generated placeholder gradients otherwise
+// Cover images for each project card — all now have visual covers (mockups or thumbnails)
 const PROJECT_IMAGES: Record<number, string> = {
-  1: "/images/projects/autovisiontv/control-platform.png",     // AutoVisionTV remote control mockup
-  2: "",                                                       // Fallback gradient — add real image later
-  3: "",                                                       // Fallback gradient — add real image later
-  4: "/images/projects/dickson-engraving/mother-day-yeti.png", // Dickson engraved Yeti tumbler
-  5: "",                                                       // Fallback gradient — add real image later
-  6: "",                                                       // Fallback gradient — add real image later
+  1: "/images/projects/autovisiontv/cover-thumbnail.png",     // AutoVisionTV cover
+  2: "/images/projects/motion-for-screens/cover-thumbnail.png",   // Motion for screens cover
+  3: "/images/projects/digital-signage-systems/cover-thumbnail.png", // Digital signage cover
+  4: "/images/projects/dickson-engraving/cover-thumbnail.png",  // Dickson engraving cover
+  5: "/images/projects/branding-visual-experiments/cover-thumbnail.png", // Branding cover
+  6: "/images/projects/experimental-interfaces/cover-thumbnail.png",    // Experimental cover
 };
 
 function ProjectImage({ project }: { project: (typeof projects)[number] }) {

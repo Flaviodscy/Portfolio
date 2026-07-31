@@ -7,12 +7,12 @@ import ImageGallery from "@/components/ImageGallery";
 
 // Contextual images for each project banner
 const BANNER_IMAGES: Record<string, string> = {
-  autovisiontv: "/images/projects/autovisiontv/control-platform.png",           // AutoVisionTV mockup
-  "motion-for-screens": "",                                                      // Needs real image
-  "dickson-engraving": "/images/projects/dickson-engraving/mother-day-yeti.png", // Dickson work photo
-  "digital-signage-systems": "",                                                 // Needs real image
-  "branding-visual-experiments": "",                                             // Needs real image
-  "experimental-interfaces": "",                                                 // Needs real image
+  autovisiontv: "/images/projects/autovisiontv/cover-thumbnail.png",            // AutoVisionTV cover
+  "motion-for-screens": "/images/projects/motion-for-screens/cover-thumbnail.png",     // Motion for screens cover
+  "dickson-engraving": "/images/projects/dickson-engraving/cover-thumbnail.png",      // Dickson engraving cover
+  "digital-signage-systems": "/images/projects/digital-signage-systems/cover-thumbnail.png", // Digital signage cover
+  "branding-visual-experiments": "/images/projects/branding-visual-experiments/cover-thumbnail.png", // Branding cover
+  "experimental-interfaces": "/images/projects/experimental-interfaces/cover-thumbnail.png",       // Experimental cover
 };
 
 function ProjectBanner({ title, slug }: { title: string; slug: string }) {
