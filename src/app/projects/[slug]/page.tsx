@@ -103,13 +103,8 @@ export default function CaseStudyPage() {
 
         {/* Banner with brand grid pattern */}
         <div className="max-w-5xl mx-auto px-6 pb-24">
-          <div className="relative w-full h-64 sm:h-80 rounded-2xl overflow-hidden border border-[var(--card-border)]" style={{ background: "linear-gradient(135deg, #a78bfa15, #8b5cf608)" }}>
-            <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "linear-gradient(#8b5cf633 1px, transparent 1px), linear-gradient(90deg, #8b5cf633 1px, transparent 1px)", backgroundSize: '32px 32px' }} />
-            <div className="absolute top-4 right-6 w-32 h-32 rounded-full opacity-10" style={{ background: "radial-gradient(circle, #a78bfa, transparent)" }} />
-            <div className="absolute bottom-6 left-8 w-48 h-48 rounded-full opacity-5" style={{ background: "radial-gradient(circle, #8b5cf6, transparent)" }} />
-            <div className="absolute inset-0 flex items-center justify-center">
-              <span className="text-white/[0.06] font-bold text-4xl sm:text-5xl uppercase tracking-wider select-none">Brand Identities</span>
-            </div>
+          <div className="relative w-full h-64 sm:h-80 rounded-2xl overflow-hidden border border-[var(--card-border)]">
+            <img src="/images/projects/branding-visual-experiments/cover-thumbnail.png" alt="Brand Identities cover" className="w-full h-full object-cover" />
           </div>
         </div>
 
