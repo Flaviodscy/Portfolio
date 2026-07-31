@@ -372,11 +372,15 @@ export default function CaseStudyPage() {
             {/* Videos — full width */}
             <div className="space-y-6">
               {[
-                { src: "/images/projects/dickson-engraving/workday-video.mp4", alt: "Sneak peek into a day at Dickson Engraving" },
-                { src: "/images/projects/dickson-engraving/design-video.mp4", alt: "Design and engraving process showcase" },
+                { mp4: "/images/projects/dickson-engraving/workday-video.mp4", webm: "/images/projects/dickson-engraving/workday-video.webm", alt: "Sneak peek into a day at Dickson Engraving" },
+                { mp4: "/images/projects/dickson-engraving/design-video.mp4", webm: "/images/projects/dickson-engraving/design-video.webm", alt: "Design and engraving process showcase" },
               ].map((vid, i) => (
                 <div key={i} className="rounded-2xl overflow-hidden bg-[var(--card-bg)] border border-[var(--card-border)]">
-                  <video src={vid.src} controls playsInline preload="auto" className="w-full h-auto object-cover" />
+                  <video controls playsInline preload="auto" className="w-full h-auto object-cover">
+                    <source src={vid.webm} type="video/webm" />
+                    <source src={vid.mp4} type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
                 </div>
               ))}
             </div>
