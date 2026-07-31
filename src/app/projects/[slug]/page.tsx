@@ -36,13 +36,15 @@ function ProjectBanner({ title, slug }: { title: string; slug: string }) {
       ) : (
         <div className="absolute inset-0 bg-gradient-to-br from-green-500/10 to-transparent" />
       )}
-      {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
-      {/* Title + description watermark */}
+      {/* Heavy bottom gradient so text is always readable */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/50 to-black/75" />
+      {/* Text panel */}
       {desc ? (
-        <div className="absolute bottom-8 left-8 sm:left-12 space-y-1">
-          <span className="text-white/90 text-2xl sm:text-3xl font-bold leading-tight block">{title.split(" — ")[0]}</span>
-          <span className="text-white/60 text-sm sm:text-base max-w-xl block">{desc}</span>
+        <div className="absolute inset-x-0 bottom-0 px-8 sm:px-12 pb-8 sm:pb-10 pt-16 sm:pt-20">
+          <div className="bg-white/[0.06] backdrop-blur-lg rounded-2xl p-5 sm:p-6 border border-white/10">
+            <h3 className="text-white text-xl sm:text-3xl font-bold leading-tight mb-2">{title.split(" — ")[0]}</h3>
+            <p className="text-white/70 text-sm sm:text-base max-w-xl leading-relaxed">{desc}</p>
+          </div>
         </div>
       ) : (
         <div className="absolute bottom-8 left-8 sm:left-12">
@@ -389,7 +391,7 @@ export default function CaseStudyPage() {
                 { src: "/images/projects/dickson-engraving/design-video.mp4", alt: "Design and engraving process showcase" },
               ].map((vid, i) => (
                 <div key={i} className="rounded-2xl overflow-hidden bg-[var(--card-bg)] border border-[var(--card-border)]">
-                  <video src={vid.src} controls playsInline className="w-full h-auto object-cover" />
+                  <video src={vid.src} controls playsInline preload="auto" className="w-full h-auto object-cover" />
                 </div>
               ))}
             </div>
